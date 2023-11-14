@@ -1,0 +1,81 @@
+BAI thiết kế cơ sở dữ liệu về dự án loai LAPTOP
+
+//TEST LOAI LAPTOP
+- MA_LOAI(PK)
+- TEN LOAI()LỌC => THƯƠNG HIỆU
+- LUOT_XEM()
+//TEST SẢN PHẨM LAPTOP
+- MA_SP_LAPTOP(PK)
+- TEN_LAPTOP()=>LỌC
+- GIA_LAPTOP()=>LỌC
+- HINH_LAPTOP()
+- NHU_CAU()=>LỌC
+- KÍCH THƯỚC()=>LỌC
+- Màu sắc() => LỌC
+- MO_TA()
+- KHUYEN_MAI()
+- MA_LOAI(FK)
+
+
+//TEST KHÁCH HANG
+- MA_KH(PK)
+- HO_TEN()
+- EMAIL()
+- MAT_KHAU()
+- DIA_CHI()
+- DIEN_THOAI()
+- VAI_TRO()
+
+//TEST BINH LUAN
+- MA_BINH_LUAN(PK)
+- NOI_DUNG_BL()
+- MA_KH(FK)
+- MA_LAPTOP(FK)
+- NGAY_BL(DATE)
+
+//TEST GIỎ HANG
+- MA_GH(PK)
+- MA_KH(FK)
+- MA_LAPTOP(FK)
+- TEN_LAPTOP()
+- HINH ()
+- DON_GIA()
+- SO_LUONG()
+- THANH_TIEN()
+- MA_HD(FK)
+
+//TEST HOA DON
+- MA_HD()
+- NGAY_DAT()
+- T_G_D_K()
+- D_C_G_H()
+- MA_KH(FK)
+- TINH_TRANG
+
+//TEST THONG KE
+- THÔNG TIN KHACH()
+- SP_LAPTOP()
+- THÀNH_VIÊN()
+- BÀI_VIẾT()
+- CMT 
+
+//TEST LUÔNG
+TRANG CHỦ 
+LOGO
+DANH MỤC(TÊN LOẠI: ACER, DELL,);
+SEARCH
+FAVORITE
+SHOP
+TÀI KHOẢN
+
+các chức năng gồm:
++ Sản phẩm LAPTOP(trang all sản phẩm)
++ Sản phẩm Nổi bật
++ Tiềm kiếm nhiều nhất
++ sản phẩm vừa xem
++ Tin công nghệ
+khác 
++ chi tiết
++ sản phẩm liên quan
+
+footer

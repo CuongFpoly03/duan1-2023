@@ -1,0 +1,1359 @@
+// BAI HEADER
+.body {
+  background-color: #f8f9fa;
+}
+.containers {
+  margin: 0px;
+  padding: 0px;
+  header {
+    width: 100%;
+    .top {
+      margin: 0px;
+      padding: 0px;
+      img {
+        margin: 0px;
+        width: 1349px;
+        height: 60px;
+      }
+      .nav-top {
+        display: flex;
+        margin: 0;
+        height: 30px;
+        background-color: blue;
+        .func {
+          font-weight: bold;
+          border: 1px solid blue;
+          color: white;
+          font-size: 15px;
+          display: flex;
+          margin-left: 80px;
+          i {
+            margin: auto 5px;
+          }
+          p {
+            margin: auto;
+          }
+        }
+      }
+      .navbar {
+        z-index: 5;
+        margin: 0;
+        .container-fluid {
+          background-color: white;
+          margin: 0;
+          .navbar-brand {
+            margin: 0px 40px;
+            img {
+              width: 110px;
+              height: 80px;
+              background-color: #f8f9fa;
+            }
+          }
+          .search {
+            // margin-right: 20px;
+            input {
+              border-radius: 10px;
+              width: 590px;
+              height: 37px;
+              padding: 2px 40px;
+              margin: 0px 20px;
+            }
+            i {
+              border: none;
+              height: 4px;
+              border-radius: 10px;
+              margin: 10px 33px;
+              position: absolute;
+              background-color: white;
+            }
+          }
+          .favorite {
+            margin-right: 1px;
+            a {
+              margin-right: 20px;
+              i {
+                font-size: 25px;
+                color: black;
+                font-weight: bold;
+              }
+            }
+          }
+          .shop {
+            a {
+              margin-right: 80px;
+              i {
+                font-size: 22px;
+                color: black;
+                font-weight: bold;
+              }
+              span {
+                position: absolute;
+                border: 1px solid #e1522a;
+                border-radius: 100px;
+                height: 23px;
+                width: 14px;
+                margin-left: 22px;
+                padding: 0px 2px;
+                background-color: #e1522a;
+                color: white;
+                margin-top: 2px;
+              }
+            }
+          }
+          .myshop {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            background-color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            .closeshop {
+              color: #818181;
+              display: block;
+              position: absolute;
+              background-color: white;
+              top: 8px;
+              right: 18px;
+              border: none;
+              font-size: 40px;
+              &:hover,
+              &:focus {
+                color: black;
+              }
+            }
+
+            .overlay-content {
+              position: relative;
+              top: 11%;
+              width: 100%;
+              margin-left: 10px;
+              .imgshop {
+                display: flex;
+                img {
+                  width: 90px;
+                  margin-right: 10px;
+                  height: 70px;
+                }
+              }
+              .total {
+                font-size: 18px;
+                font-weight: bold;
+                margin-left: 20px;
+                margin-top: 30px;
+              }
+              .button-cart {
+                display: flex;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                margin-top: 20px;
+                div {
+                  padding: 5px 10px;
+                  border: 1px solid black;
+                  color: white;
+                  background-color: black;
+                  margin: 10px;
+                  border-radius: 5px;
+                  &:hover {
+                    background-color: white;
+                    color: black;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    // BAIlogin/register
+    .account {
+      margin-right: 100px;
+      .butonss {
+        border-radius: 5px;
+        border: 1px solid #e1522a;
+        color: white;
+        background-color: #e1522a;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 13px;
+        &:hover {
+          color: brown;
+        }
+      }
+      .forms {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 4;
+        overflow: auto;
+        display: none;
+        left: 0;
+        top: 0;
+        padding: 60px;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.3);
+        form {
+          background-color: #fefefe;
+          margin: 0px auto;
+          border: 1px solid #fefefe;
+          border-radius: 5px;
+          width: 60%;
+          legend {
+            text-align: center;
+            font-size: 30px;
+            color: brown;
+            font-weight: bold;
+            margin: 20px 0px;
+          }
+          .form-close {
+            .close {
+              position: absolute;
+              top: 9%;
+              right: 24.5%;
+              color: #000;
+              font-size: 40px;
+              font-weight: bold;
+              cursor: pointer;
+              &:hover,
+              :focus {
+                color: brown;
+              }
+            }
+          }
+
+          .form-body {
+            margin: 20px 160px;
+            font-size: 20px;
+            input {
+              padding: 10px 15px;
+              width: 100%;
+              margin: 15px 0px;
+              border-radius: 5px;
+              display: inline-block;
+              box-sizing: border-box;
+              cursor: pointer;
+              &:hover {
+                opacity: 0.6;
+              }
+              &:focus {
+                background-color: #cdcdcd;
+                border: 1px solid #cdcdcd;
+              }
+            }
+            button {
+              padding: 5px 20px;
+              color: white;
+              font-weight: bold;
+              font-size: 18px;
+              background-color: #000;
+              border-radius: 5px;
+              &:hover {
+                opacity: 0.6;
+              }
+            }
+          }
+          .inputs {
+            margin-left: 158px;
+            font-size: 20px;
+          }
+
+          .bottom-form {
+            margin-left: 160px;
+            font-size: 20px;
+            margin-bottom: 40px;
+            margin-top: 20px;
+            span {
+              font-size: 14px;
+              color: blue;
+              font-weight: bold;
+              a {
+                color: blue;
+                text-decoration: none;
+              }
+            }
+            .password {
+              margin-left: 200px;
+            }
+          }
+        }
+        //add
+        .animations {
+          -webkit-animation: zoom 0.8s;
+          animation: zoom 0.8s;
+        }
+
+        @-webkit-keyframes zoom {
+          from {
+            -webkit-transform: scale(0);
+          }
+          to {
+            -webkit-transform: scale(1);
+          }
+        }
+
+        @keyframes zoom {
+          from {
+            transform: scale(0);
+          }
+          to {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+    //register
+    .account {
+      .register {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow: auto;
+        .sticky {
+          position: fixed;
+          top: 0;
+          width: 100%;
+        }
+        z-index: 4;
+        padding: 60px;
+        left: 0;
+        top: 0;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.3);
+        display: none;
+        form {
+          background-color: #fefefe;
+          margin: 0px auto;
+          border: 1px solid #fefefe;
+          border-radius: 5px;
+          width: 60%;
+          legend {
+            text-align: center;
+            margin-top: 20px;
+            color: brown;
+            font-size: 25px;
+            font-weight: bold;
+          }
+          .form-close {
+            .close {
+              position: absolute;
+              font-size: 40px;
+              top: 9%;
+              right: 24.5%;
+              font-weight: bold;
+              cursor: pointer;
+              &:hover {
+                color: brown;
+              }
+            }
+          }
+          .bodyform {
+            font-size: 20px;
+            padding: 0px auto;
+            label {
+              margin-left: 150px;
+              margin-top: 30px;
+            }
+            .input {
+              padding: 10px 30px;
+              width: 60%;
+              margin: 5px 150px;
+              border-radius: 5px;
+              display: inline-block;
+              box-sizing: border-box;
+              cursor: pointer;
+              &:hover {
+                opacity: 0.6;
+              }
+              &:focus {
+                background-color: #cdcdcd;
+                border: 1px solid #cdcdcd;
+              }
+            }
+            button {
+              padding: 10px 30px;
+              color: white;
+              font-weight: bold;
+              font-size: 20px;
+              background-color: #000;
+              border-radius: 5px;
+              cursor: pointer;
+              &:hover {
+                opacity: 0.6;
+              }
+            }
+          }
+          .label {
+            margin-left: 150px;
+          }
+          .bottomform {
+            margin: 40px 155px;
+            .button {
+              border: 1px solid black;
+              padding: 7px 25px;
+              background-color: black;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    //BAI banner update
+    .update-banner {
+      position: absolute;
+      z-index: 1;
+      display: flex;
+      .col-70 {
+        margin-left: 80px;
+        margin-top: 25px;
+        width: 1000px;
+        float: left;
+        .box-banner {
+          border-radius: 5px;
+          // background-color: white;
+          display: flex;
+          // margin-right: 400px;
+          width: 100%;
+          .button {
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            width: 240px;
+            font-size: 14px;
+            text-align: left;
+            background-color: white !important;
+            &:hover {
+              color: blue;
+            }
+          }
+        }
+        .small-update {
+          width: 590px;
+          background-color: white;
+          border: 1px solid white;
+          display: none;
+          a {
+            font-size: 15px;
+            color: black;
+            text-decoration: none !important;
+            margin: 0px 10px;
+            &:hover {
+              color: blue;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      .box-banner:hover .small-update {
+        background-color: white;
+        display: block;
+        border: 1px solid white;
+
+        font-size: 13px;
+      }
+
+      .col-30 {
+        width: 30%;
+        div {
+          margin: 25px;
+          img {
+            width: 200px;
+            height: 200px;
+          }
+        }
+      }
+    }
+    //BAI banner
+
+    .banner {
+      margin: auto;
+      position: relative;
+      .down {
+        z-index: 1;
+        margin: 0 670px;
+        margin-top: 390px;
+        position: absolute;
+        p {
+          font-size: 30px;
+          font-weight: bold;
+          color: orange;
+          border: 1px solid orange;
+          padding: 2px 3px;
+          border-radius: 50px;
+          cursor: pointer;
+          position: relative;
+          animation-name: testdown;
+          animation-duration: 5s;
+          animation-iteration-count: infinite;
+          i {
+            text-align: center;
+          }
+          @keyframes testdown {
+            0% {
+              left: 0px;
+              bottom: 0px;
+            }
+            50% {
+              left: 0px;
+              bottom: 50px;
+            }
+            100% {
+              left: 0px;
+              bottom: 0px;
+            }
+          }
+        }
+      }
+      .img-banner {
+        display: none;
+        // margin-top: 50px;
+        img {
+          height: 480px;
+        }
+      }
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 45%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: black;
+        font-weight: bold;
+        font-size: 30px;
+        transition: 0.6 ease;
+        border-radius: 0 3px 3px 0;
+        // user-select: none;
+        transition: transform 0.4s;
+        &:hover {
+          -webkit-transform: scale(0.5);
+          -ms-transform: scale(0.5);
+          transform: scale(0.5);
+        }
+      }
+      .next {
+        right: 0px;
+        border-radius: 3px 0 0 3px;
+      }
+    }
+  }
+  .main {
+    margin: 0;
+    // clear: both;
+    // BAI all-tt-banner
+    .all-tt-banner {
+      background-color: white;
+      border-radius: 4px;
+      height: 167px;
+      margin: 0px auto;
+      margin-bottom: 40px;
+      float: left;
+      width: 97%;
+      .info-tech {
+        display: flex;
+        cursor: pointer;
+        .info {
+          width: 25%;
+          float: left;
+          margin-left: 40px;
+          img {
+            width: 280px;
+            height: 140px;
+            border-radius: 10px;
+            margin: 20px 0;
+            &:hover {
+              width: 285px;
+              height: 145px;
+            }
+          }
+        }
+      }
+    }
+    // BAI loại nỗi bật
+    .all-category-nb {
+      clear: both;
+      background-color: white;
+      border-radius: 4px;
+      height: 230px;
+      margin: 50px auto;
+      width: 97%;
+      .text-tech {
+        // color: white;
+        // display: flex;
+        legend {
+          // display: none;
+          font-size: 20px;
+          margin: 10px 20px;
+          font-weight: bold;
+          color: #000;
+          text-align: center;
+        }
+      }
+      .info-tech {
+        // display: flex;
+        cursor: pointer;
+        .info {
+          width: 9%;
+          float: left;
+          margin-left: 13px;
+          img {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            margin: 20px 0;
+            &:hover {
+              width: 97px;
+              height: 97px;
+            }
+          }
+          p {
+            width: 100px;
+            font-size: 14px;
+            height: 100px;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+    //  BAI loaptop
+    .box-all {
+      clear: both;
+      background-color: #3b283c;
+      border-radius: 4px;
+      height: 500px;
+      margin: 50px auto;
+      width: 97%;
+      .text-laptop {
+        // float: left;
+        color: white;
+        display: flex;
+        legend {
+          font-size: 20px;
+          margin: 10px 20px;
+          font-weight: bold;
+        }
+        a {
+          margin-right: 10px;
+          text-decoration: none;
+          color: white;
+          font-size: 14px;
+          margin-top: 10px;
+          &:hover {
+            color: blue;
+            // font-size: 15px;
+          }
+        }
+      }
+      .sp-laptop {
+        display: flex;
+        .sp-one {
+          width: 20%;
+          float: left;
+          margin-left: 17px;
+          border-radius: 10px;
+          transition: tranform 0.9;
+          &:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+          }
+          img {
+            width: 230px;
+            height: 230px;
+          }
+          .text-sp {
+            background-color: white;
+            width: 230px;
+            height: 150px;
+            legend {
+              margin: 0px 10px;
+              opacity: 0.6;
+              font-size: 20px;
+              font-weight: bold;
+            }
+            p {
+              font-size: 13px;
+              margin: 0px 10px;
+            }
+            span {
+              color: blue;
+              margin: 0px 10px;
+
+              font-weight: bold;
+              padding-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+    // BAI SP NỖI BẬT
+    .box-spnb {
+      height: 500px;
+      margin: 50px auto;
+      width: 97%;
+      .text-laptop {
+        display: flex;
+        legend {
+          font-size: 20px;
+          margin: 10px 0px;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+      .sp-laptop {
+        display: flex;
+        // display: block  ;
+        position: sticky;
+        .sp-one {
+          width: 20%;
+          float: left;
+          margin-bottom: 30px;
+          margin-left: 17px;
+          border-radius: 10px;
+          transition: tranform 0.9;
+          &:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+            border: 1px solid silver;
+          }
+          img {
+            width: 230px;
+            height: 230px;
+          }
+          .text-sp {
+            background-color: white;
+            width: 230px;
+            height: 150px;
+            legend {
+              margin: 0px 20px;
+              opacity: 0.6;
+              font-size: 20px;
+              font-weight: bold;
+            }
+            p {
+              font-size: 13px;
+              margin: 15px 20px;
+            }
+            span {
+              color: blue;
+              margin: 0px 20px;
+              font-weight: bold;
+              padding-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+    //BAI DANH CHO BẠN
+    .product-your {
+      background-color: #2d2055;
+      border-radius: 4px;
+      height: 500px;
+      margin: 50px auto;
+      width: 97%;
+      .text-laptop {
+        color: white;
+        display: flex;
+        legend {
+          font-size: 20px;
+          margin: 10px 20px;
+          font-weight: bold;
+        }
+        a {
+          margin-right: 10px;
+          text-decoration: none;
+          color: white;
+          font-size: 14px;
+          margin-top: 10px;
+          &:hover {
+            color: blue;
+            // font-size: 15px;
+          }
+        }
+      }
+      .sp-laptops {
+        // display: flex;
+        display: none;
+        .sp-one {
+          width: 18%;
+          float: left;
+          margin-left: 20px;
+          border-radius: 10px;
+          transition: tranform 0.9;
+          &:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+          }
+          img {
+            width: 230px;
+            height: 230px;
+          }
+          .text-sp {
+            background-color: white;
+            width: 230px;
+            height: 150px;
+            legend {
+              margin: 0px 10px;
+              opacity: 0.6;
+              font-size: 20px;
+              font-weight: bold;
+            }
+            p {
+              font-size: 13px;
+              margin: 0px 10px;
+            }
+            span {
+              color: blue;
+              margin: 0px 10px;
+
+              font-weight: bold;
+              padding-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      z-index: 2;
+      width: auto;
+      padding: 30px;
+      margin-right: 40px;
+      margin-top: 130px;
+      color: black;
+      font-weight: bold;
+      font-size: 35px;
+      transition: 0.6 ease;
+      border-radius: 0 3px 3px 0;
+      // user-select: none;
+      transition: transform 0.4s;
+      &:hover {
+        -webkit-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        transform: scale(1.4);
+      }
+    }
+    .next {
+      right: 0px;
+      border-radius: 3px 0 0 3px;
+    }
+    .box-spnb {
+      height: 500px;
+      margin: 50px auto;
+      width: 97%;
+      .text-laptop {
+        display: flex;
+        legend {
+          font-size: 20px;
+          margin: 10px 0px;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+      .sp-laptop {
+        display: flex;
+        // display: block  ;
+        position: sticky;
+        .sp-one {
+          width: 20%;
+          float: left;
+          margin-bottom: 30px;
+          margin-left: 17px;
+          border-radius: 10px;
+          transition: tranform 0.9;
+          &:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+          }
+          img {
+            width: 230px;
+            height: 230px;
+          }
+          .text-sp {
+            background-color: white;
+            width: 230px;
+            height: 150px;
+            legend {
+              margin: 0px 20px;
+              opacity: 0.6;
+              font-size: 20px;
+              font-weight: bold;
+            }
+            p {
+              font-size: 13px;
+              margin: 15px 20px;
+            }
+            span {
+              color: blue;
+              margin: 0px 20px;
+              font-weight: bold;
+              padding-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+    // BAI TIN
+    .technogory {
+      background-color: white;
+      border-radius: 4px;
+      height: 300px;
+      margin: 50px auto;
+      float: left;
+      // display: none;
+      width: 97%;
+      .text-tech {
+        color: white;
+        display: flex;
+        legend {
+          font-size: 20px;
+          margin: 10px 20px;
+          font-weight: bold;
+          color: #000;
+          text-align: center;
+        }
+      }
+      .info-tech {
+        display: flex;
+        cursor: pointer;
+        .info {
+          width: 25%;
+          float: left;
+          margin-left: 35px;
+          img {
+            width: 250px;
+            height: 130px;
+            border-radius: 5px;
+            margin: 20px 0;
+            &:hover {
+              width: 255px;
+              height: 135px;
+            }
+          }
+          p {
+            width: 250px;
+            font-size: 14px;
+            height: 130px;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+    // BAI CHI TIẾT SP
+    .all-detail {
+      display: flex;
+      // float: left;
+      margin: 0;
+      // margin-bottom: 50px;
+      .left {
+        width: 70%;
+        float: left;
+        .all-col {
+          display: flex;
+          background-color: white;
+          margin: 50px 40px;
+          height: 420px;
+          cursor: pointer;
+          img {
+            width: 350px;
+            height: 350px;
+            border: 2px solid #cdcdcd;
+            margin: 30px 10px;
+            transition: 0px tranform(0.7s);
+            &:hover {
+              transform: scale(0.9);
+              opacity: 0.7;
+            }
+          }
+          .text-detail {
+            margin-left: 30px;
+            margin-top: 30px;
+            legend {
+              font-size: 20px;
+              font-weight: bold;
+            }
+            p {
+              font-size: 15px;
+              margin: 20px 0;
+            }
+            span {
+              margin: 20px 0;
+              color: red;
+              font-size: 15px;
+              font-weight: bold;
+            }
+            .submit {
+              margin-top: 100px;
+              button {
+                background-color: #000;
+                color: white;
+                border: 1px solid black;
+                padding: 10px 20px;
+                border-radius: 5px;
+                &:hover {
+                  background-color: white;
+                  color: black;
+                }
+              }
+            }
+          }
+        }
+      }
+      .right {
+        width: 30%;
+        float: left;
+        .top-detail {
+          display: flex;
+          background-color: white;
+          margin: 50px 0px;
+          margin-right: 40px;
+          img {
+            width: 50px;
+            border: 1px solid #cdcdcd;
+            margin: 10px 20px;
+            height: 50px;
+            border-radius: 100px;
+          }
+          p {
+            margin: 10px 0px;
+            font-size: 15px;
+            font-weight: bold;
+          }
+        }
+        .info-nua {
+          height: 300px;
+          font-size: 14px;
+          margin: 0px 0;
+          margin-right: 40px;
+          background-color: white;
+          legend {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0px;
+          }
+          p {
+            margin: 20px 10px;
+          }
+        }
+      }
+    }
+    .description {
+      margin: 30px 40px;
+      background-color: white;
+      width: 94%;
+      legend {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin: 30px 0;
+      }
+      .small-des {
+        width: 90%;
+        text-align: left;
+        margin-left: 65px;
+        p {
+          font-size: 16px;
+        }
+        img {
+          width: 400px;
+          height: 400px;
+          margin-left: 350px;
+        }
+      }
+    }
+    // BAI SP liên quan
+    .pro-relate {
+      height: 500px;
+      margin: 50px auto;
+      width: 97%;
+      .text-laptop {
+        display: flex;
+        legend {
+          font-size: 20px;
+          margin: 10px 0px;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+      .sp-laptop {
+        display: flex;
+        // display: block  ;
+        position: sticky;
+        .sp-one {
+          width: 20%;
+          float: left;
+          margin-bottom: 30px;
+          margin-left: 17px;
+          border-radius: 10px;
+          transition: tranform 0.9;
+          &:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+            border: 1px solid silver;
+          }
+          img {
+            width: 230px;
+            height: 230px;
+          }
+          .text-sp {
+            background-color: white;
+            width: 230px;
+            height: 150px;
+            legend {
+              margin: 0px 20px;
+              opacity: 0.6;
+              font-size: 20px;
+              font-weight: bold;
+            }
+            p {
+              font-size: 13px;
+              margin: 15px 20px;
+            }
+            span {
+              color: blue;
+              margin: 0px 20px;
+              font-weight: bold;
+              padding-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+    //BAI SẢN PHẨM
+    .sanpham {
+      margin-top: 30px;
+      width: 100%;
+      .lefts {
+        width: 30%;
+        float: left;
+        background-color: white;
+        margin-left: 50px;
+        width: 220px;
+        .all-category {
+          p {
+            font-size: 15px;
+            margin: 20px 10px;
+            // border: 1px solid #cdcdcd;
+            &:active {
+              background-color: #cdcdcd;
+            }
+            i {
+              float: right;
+              margin-right: 10px;
+              margin-top: 3px;
+            }
+          }
+          .function-lap {
+            // margin-left: 10px;
+            // display: none;
+            .displays {
+              margin: 5px 0px;
+              input {
+                margin: 0px 10px;
+              }
+            }
+          }
+        }
+        .navbar-nhucau {
+          p {
+            font-size: 15px;
+            margin: 20px 10px;
+            &:active {
+              background-color: #cdcdcd;
+            }
+            i {
+              float: right;
+              margin-right: 10px;
+              margin-top: 3px;
+            }
+          }
+          .displays {
+            // display: none;
+            input {
+              margin: 10px 10px;
+            }
+          }
+        }
+      }
+      .rights {
+        width: 70%;
+        float: left;
+        margin-left: 10px;
+        .top-rights {
+          background-color: white;
+          width: 1020px;
+          height: 50px;
+          margin-bottom: 10px;
+          legend {
+            font-size: 20px;
+            padding: 10px;
+            font-weight: bold;
+          }
+        }
+        .function-rights {
+          background-color: white;
+          width: 1020px;
+          height: 50px;
+          // margin-bottom: 10px;
+          button {
+            margin: 8px 10px;
+            border: 0.5px solid #cdcdcd;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 15px;
+            &:active {
+              background-color: #2d2055;
+              color: white;
+            }
+          }
+          .button {
+            background-color: #2d2055;
+            color: white;
+            border: none;
+            font-weight: bold;
+            font-size: 17px;
+          }
+        }
+        .sp-laptop {
+          // display: flex;
+          // float: left;
+          .sp-one {
+            margin-top: 20px;
+            width: 20%;
+            float: left;
+            border-radius: 10px;
+            transition: tranform 0.9;
+            &:hover {
+              transform: scale(1.1);
+              opacity: 0.8;
+            }
+            img {
+              margin-left: 50px;
+              width: 160px;
+              height: 180px;
+            }
+            .text-sp {
+              margin-left: 50px;
+              background-color: white;
+              width: 160px;
+              height: 150px;
+              legend {
+                margin: 0px 10px;
+                opacity: 0.6;
+                font-size: 20px;
+                font-weight: bold;
+              }
+              p {
+                font-size: 13px;
+                margin: 0px 10px;
+              }
+              span {
+                color: blue;
+                margin: 0px 10px;
+
+                font-weight: bold;
+                padding-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// foorter
+.footer {
+  display: flex;
+  background-color: white;
+  width: 100%;
+  clear: both;
+  margin-top: 80px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  .one {
+    font-size: 15px;
+    margin: 20px 30px;
+    .legend {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+    p {
+      font-size: 12px;
+      width: 300px;
+    }
+  }
+
+  .two {
+    font-size: 12px;
+    margin: 20px 30px;
+    .legend {
+      font-size: 15px;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    p {
+      font-size: 12px;
+      width: 300px;
+    }
+    .icon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      i {
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.footerss {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  // margin-left: 118px;
+  // border-radius: 5px;
+  // overflow: auto;
+  background-color: #000;
+  .marquee {
+    color: aqua;
+    margin-top: 7px;
+    q {
+      margin: 0px 50px;
+    }
+  }
+}
+
+.favoirite {
+  position: fixed;
+  z-index: 1;
+  left: 10%;
+  bottom: 10%;
+  width: 5%;
+  border-radius: 80px;
+  height: 10%;
+  overflow: auto;
+  background-color: #50def6;
+  .favoi {
+    i {
+      color: #ffffff;
+      justify-items: center;
+      font-size: 30px;
+      margin: 16px;
+    }
+  }
+}
