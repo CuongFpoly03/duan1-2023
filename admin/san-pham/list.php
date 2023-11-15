@@ -38,8 +38,8 @@
                     <td><?= $kich_thuoc ?></td>
                     <td><?= $mo_ta ?></td>
                     <td>
-                        <a onclick="return confirm('Bạn có muốn xóa không ?')" href="?act=loai&ma_loai=<?= $ma_loai ?>">xóa</a> -
-                        <a href="?act=update&ma_loai=<?= $ma_loai ?>">sửa</a>
+                        <a onclick="return confirm('Bạn có muốn xóa không ?')" href="?act=sanpham&ma_sp=<?= $ma_sp ?>">xóa</a> -
+                        <a href="?act=updatesp&ma_sp=<?= $ma_sp ?>">sửa</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
