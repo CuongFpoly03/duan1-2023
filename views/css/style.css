@@ -54,6 +54,9 @@
   height: 80px;
   background-color: #f8f9fa;
 }
+.containers header .top .navbar .container-fluid .search {
+  display: flex;
+}
 .containers header .top .navbar .container-fluid .search input {
   border-radius: 10px;
   width: 590px;
@@ -61,10 +64,11 @@
   padding: 2px 40px;
   margin: 0px 20px;
 }
-.containers header .top .navbar .container-fluid .search i {
-  border: none;
+.containers header .top .navbar .container-fluid .search .button {
+  border: 10px solid black;
   height: 4px;
   border-radius: 10px;
+  padding: 100px;
   margin: 10px 33px;
   position: absolute;
   background-color: white;

@@ -57,7 +57,7 @@
                   <ul class="dropdown-menu">
                     <?php foreach ($loaidanhmuc as $ldm) : ?>
                       <?php extract($ldm) ?>
-                    <li><a class="dropdown-item" href="#"><?= $ten_loai ?></a></li>
+                    <li><a class="dropdown-item" href="?act=locloai&ma_loai=<?=$ma_loai?>"><?= $ten_loai ?></a></li>
                     <?php endforeach; ?>
                     <!-- <li><a class="dropdown-item" href="#">Lenovo</a></li>
                     <li><a class="dropdown-item" href="#">Hp</a></li>
@@ -69,9 +69,9 @@
               </ul>
             </div>
             <!-- TEST search -->
-            <form action="" class="search">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" placeholder="search..">
+            <form action="?act=search" method = "POST" class="search">
+              <button type="submit">Search</button>
+              <input type="text" name="kyw" placeholder="search..">
             </form>
             <?php {/*BAI sp yêu thích */
             } ?>

@@ -1,6 +1,7 @@
 <?php
 require_once "../model/loai_laptop.php";
 require_once "../model/san_pham.php";
+require_once "../model/khach_hang.php";
 
 
 $act = $_GET['act'] ?? "";
@@ -119,6 +120,43 @@ switch ($act) {
             $sp = list_one_sp($ma_sp);
             extract($sp);
             $VIEW = "san-pham/update.php";
+        }
+        break;
+        //KHACH HANG
+    case "listkh":
+        $title = 'Danh sách khách hàng';
+        if (isset($_GET['ma_kh'])) {
+            $ma_kh = $_GET['ma_kh'];
+            delete_kh($ma_kh);
+            $thongbao = "Xóa dữ liệu thành công!";
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $ma_kh = $_POST['ma_kh'];
+            delete_kh_item($ma_kh);
+            $thongbao = 'xóa dữ liệu thành công!';
+        }
+        $khachhang = load_all_kh();
+        $VIEW = "khach-hang/list.php";
+        break;
+    case "updatekh":
+        $title = "Sửa khách hàng";
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $ten_kh = $_POST['ten_kh'];
+            $email = $_POST['email'];
+            $mat_khau = $_POST['mat_khau'];
+            $dia_chi = $_POST['dia_chi'];
+            $dien_thoai = $_POST['dien_thoai'];
+            $vai_tro = $_POST['vai_tro'];
+            $ma_kh = $_POST['ma_kh'];
+            update_kh($ma_kh, $ten_kh, $email, $mat_khau, $dia_chi, $dien_thoai, $vai_tro);
+            $thongbao = "Cập nhập dữ liệu thành công";
+        }
+        if (isset($_GET['ma_kh'])) {
+            $ma_kh = $_GET['ma_kh'];
+            $kh = list_one_kh($ma_kh);
+            extract($kh);
+            $VIEW = "Khach-hang/update.php";
         }
         break;
     default:

@@ -26,6 +26,34 @@ switch ($act) {
         $sp_cungloai = sp_cungloai($ma_sp, $ma_loai);
         $VIEW = './views/layout/chitietsp.php';
         break;
+    case 'search': 
+        $title = "sản phẩm tìm kiếm";
+        if(isset($_POST['kyw']) && (['kyw'] != "")){
+            $kyw = $_POST['kyw'];
+        }else {
+            $kyw = "";
+        }
+        if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
+            $ma_loai = $_GET['ma_loai'];
+        } else {
+            $ma_loai = 0;
+        }
+        $listsanpham = loadall_sanpham("$kyw", $ma_loai);//lọc kyw
+        $loaidanhmuc = all_list_loai($ma_loai);
+        $VIEW = './views/layout/searchsp.php';
+        break;
+    case 'locloai':
+        $title = "Loại";
+        if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
+            $ma_loai = $_GET['ma_loai'];
+        } else {
+            $ma_loai = 0;
+        }
+        $locsanpham = loadall_sanpham("", $ma_loai);//lọc kyw
+        $loaidanhmuc = all_list_loai($ma_loai);//bảng loại
+        $tenloai =  load_ten_loai($ma_loai);// mình tên loại đã extract rồi
+        $VIEW = 'views/layout/locloai.php';
+        break;
     case 'sanpham':
         $title = "Sản phẩm mới";
         $sanpham = all_list_sanpham();

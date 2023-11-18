@@ -6,29 +6,57 @@ function all_list_sanpham()
     $sql = "SELECT sp_laptop.*, ten_loai, nhu_cau, mau_sac, kich_thuoc, ram FROM sp_laptop JOIN loai_laptop ON sp_laptop.ma_loai = loai_laptop.ma_loai ORDER BY ma_sp DESC";
     return  pdo_query($sql);
 }
-
+//loc sp kyw 
+function loadall_sanpham($kyw = "", $ma_loai)
+{
+    $sql = "SELECT * FROM sp_laptop WHERE 1";
+    if ($kyw != "") {
+        $sql .= " AND ten_sp like '%" . $kyw . "%'";
+    }
+    if ($ma_loai > 0) {
+        $sql .= " AND ma_loai = $ma_loai";
+    }
+    $sql .= " ORDER BY ma_sp DESC";
+    return  pdo_query($sql);
+}
+function load_ten_loai($ma_loai)
+{
+    if ($ma_loai > 0) {
+        $sql = "SELECT * FROM loai_laptop where ma_loai = $ma_loai";
+        $loai = pdo_query_one($sql);
+        extract($loai);
+        return $ten_loai;
+    } else {
+        return "";
+    }
+}
 // sp bán chạy
-function sp_banchay(){
+function sp_banchay()
+{
     $sql = "SELECT * FROM sp_laptop  ORDER BY luot_xem DESC";
     return  pdo_query($sql);
 }
 // giá tăng dần
-function sp_tangdan(){
+function sp_tangdan()
+{
     $sql = "SELECT * FROM sp_laptop ORDER BY gia_sp ASC";
     return  pdo_query($sql);
 }
-function sp_giamdan(){
+function sp_giamdan()
+{
     $sql = "SELECT * FROM sp_laptop ORDER BY gia_sp desc";
     return  pdo_query($sql);
 }
 
 //ctsp
-function chitiet_sp($ma_sp){
+function chitiet_sp($ma_sp)
+{
     $sql = "SELECT sp_laptop.*, ten_loai FROM sp_laptop JOIN loai_laptop ON sp_laptop.ma_loai = loai_laptop.ma_loai WHERE ma_sp = $ma_sp";
     return pdo_query_one($sql);
 }
 //spcl
-function sp_cungloai($ma_sp, $ma_loai){
+function sp_cungloai($ma_sp, $ma_loai)
+{
     $sql = "SELECT * FROM sp_laptop WHERE ma_loai = $ma_loai AND ma_sp <> $ma_sp";
     // echo $sql; die;
     return  pdo_query($sql);

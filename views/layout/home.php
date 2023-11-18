@@ -5,7 +5,7 @@
                 <div class="small-update th">
                     <?php foreach ($banner as $bn) : ?>
                         <?php extract($bn) ?>
-                        <a class="banner-text" href=""><?= $ten_loai ?></a>
+                        <a class="banner-text" href="?act=locloai&ma_loai=<?=$ma_loai?>"><?= $ten_loai ?></a>
                     <?php endforeach; ?>
                     <!-- <a href="?act=del">Dell</a>
                     <a href="">Hp</a>

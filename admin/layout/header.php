@@ -62,7 +62,7 @@
                     <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Tổng hợp</a>
                     <a href="index.php?act=loai" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Loại LapTop</a>
                     <a href="index.php?act=sanpham" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Sản Phẩm LapTop</a>
-                    <a href="index.php?act=khachhang" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Khách hàng</a>
+                    <a href="index.php?act=listkh" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Khách hàng</a>
                     <a href="index.php?act=giohang" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Giỏ hàng</a>
                     <a href="index.php?act=donhang" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Đơn hàng</a>
                     <a href="index.php?act=thongke" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
