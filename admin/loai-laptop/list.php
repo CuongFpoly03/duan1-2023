@@ -15,6 +15,7 @@
                 <th>Nhu_cau</th>
                 <th>Mau_sac</th>
                 <th>Kich_thuoc</th>
+                <th>Ram</th>
                 <th>Luot_xem</th>
                 <th>Trang_thai</th>
                 <th>Action</th>
@@ -28,6 +29,7 @@
                 <td><?= $nhu_cau ?></td>
                 <td><?= $mau_sac ?></td>
                 <td><?= $kich_thuoc ?></td>
+                <td><?= $ram ?>GB</td>
                 <td><?= $luot_xem ?></td>
                 <td><?= $trang_thai ? "hiển thị" : "ẩn" ?></td>
                 <td>

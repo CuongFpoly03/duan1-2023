@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>header</title>
+  <title><?= $title ?></title>
   <link rel="stylesheet" href="./views/css/style.css" />
   <link rel="stylesheet" href="./views/fonts/fontawesome-free-6.3.0-web/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
@@ -55,12 +55,15 @@
                      Danh mục
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Acer</a></li>
-                    <li><a class="dropdown-item" href="#">Lenovo</a></li>
+                    <?php foreach ($loaidanhmuc as $ldm) : ?>
+                      <?php extract($ldm) ?>
+                    <li><a class="dropdown-item" href="#"><?= $ten_loai ?></a></li>
+                    <?php endforeach; ?>
+                    <!-- <li><a class="dropdown-item" href="#">Lenovo</a></li>
                     <li><a class="dropdown-item" href="#">Hp</a></li>
                     <li>
                       <a class="dropdown-item" href="#">Dell</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </li>
               </ul>

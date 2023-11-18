@@ -33,9 +33,10 @@ switch ($act) {
             $nhu_cau = $_POST['nhu_cau'];
             $mau_sac = $_POST['mau_sac'];
             $kich_thuoc = $_POST['kich_thuoc'];
+            $ram = $_POST['ram'];
             $luot_xem = $_POST['luot_xem'];
             $trang_thai = $_POST['trang_thai'] ?? 0;
-            add_loai($ten_loai, $nhu_cau, $mau_sac, $kich_thuoc, $luot_xem, $trang_thai);
+            add_loai($ten_loai, $nhu_cau, $mau_sac, $kich_thuoc, $ram, $luot_xem, $trang_thai);
             setcookie("thongbao", "Thêm Loại thành công!", time() + 1);
             header("location: ?act=loai");
             die;
@@ -49,10 +50,11 @@ switch ($act) {
             $nhu_cau = $_POST['nhu_cau'];
             $mau_sac = $_POST['mau_sac'];
             $kich_thuoc = $_POST['kich_thuoc'];
+            $ram = $_POST['ram'];
             $luot_xem = $_POST['luot_xem'];
             $ma_loai = $_POST['ma_loai'];
             $trang_thai = $_POST['trang_thai'] ?? 0;
-            update_loai($ma_loai, $ten_loai, $nhu_cau, $mau_sac, $kich_thuoc, $luot_xem, $trang_thai);
+            update_loai($ma_loai, $ten_loai, $nhu_cau, $mau_sac, $kich_thuoc, $ram, $luot_xem, $trang_thai);
             $thongbao = "Cập nhập dữ liệu thành công";
         }
         if (isset($_GET['ma_loai'])) {

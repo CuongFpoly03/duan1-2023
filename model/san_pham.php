@@ -1,11 +1,52 @@
 <?php
-
 require_once "pdo.php";
+
 function all_list_sanpham()
 {
-    $sql = "SELECT sp_laptop.*, ten_loai, nhu_cau, mau_sac, kich_thuoc FROM sp_laptop JOIN loai_laptop ON sp_laptop.ma_loai = loai_laptop.ma_loai ORDER BY ma_sp DESC";
+    $sql = "SELECT sp_laptop.*, ten_loai, nhu_cau, mau_sac, kich_thuoc, ram FROM sp_laptop JOIN loai_laptop ON sp_laptop.ma_loai = loai_laptop.ma_loai ORDER BY ma_sp DESC";
     return  pdo_query($sql);
 }
+
+// sp bán chạy
+function sp_banchay(){
+    $sql = "SELECT * FROM sp_laptop  ORDER BY luot_xem DESC";
+    return  pdo_query($sql);
+}
+// giá tăng dần
+function sp_tangdan(){
+    $sql = "SELECT * FROM sp_laptop ORDER BY gia_sp ASC";
+    return  pdo_query($sql);
+}
+function sp_giamdan(){
+    $sql = "SELECT * FROM sp_laptop ORDER BY gia_sp desc";
+    return  pdo_query($sql);
+}
+
+//ctsp
+function chitiet_sp($ma_sp){
+    $sql = "SELECT sp_laptop.*, ten_loai FROM sp_laptop JOIN loai_laptop ON sp_laptop.ma_loai = loai_laptop.ma_loai WHERE ma_sp = $ma_sp";
+    return pdo_query_one($sql);
+}
+//spcl
+function sp_cungloai($ma_sp, $ma_loai){
+    $sql = "SELECT * FROM sp_laptop WHERE ma_loai = $ma_loai AND ma_sp <> $ma_sp";
+    // echo $sql; die;
+    return  pdo_query($sql);
+}
+
+//laptop
+function all_list_namsanpham()
+{
+    $sql = "SELECT * FROM sp_laptop  ORDER BY ma_sp DESC limit 0,5";
+    return  pdo_query($sql);
+}
+//san pham noi bạt
+function all_list_sanphamnb()
+{
+    $sql = "SELECT * FROM sp_laptop  ORDER BY luot_xem DESC limit 0,5";
+    return  pdo_query($sql);
+}
+
 function add_sanpham($ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai)
 {
     $sql = "INSERT INTO sp_laptop(ten_sp, gia_sp, hinh_sp, mo_ta, ma_loai) VALUES('$ten_sp','$gia_sp','$hinh_sp','$mo_ta','$ma_loai')";

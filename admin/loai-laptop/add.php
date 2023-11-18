@@ -28,6 +28,10 @@
             <input type="text" class="form-control" name="kich_thuoc" required>
         </div>
         <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Ram:</label>
+            <input type="text" class="form-control" name="ram" required>
+        </div>
+        <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Lượt Xem:</label>
             <input type="text" class="form-control" name="luot_xem" required>
         </div>

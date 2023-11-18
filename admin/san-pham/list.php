@@ -22,6 +22,7 @@
                 <th>Nhu_cau</th>
                 <th>Mau_sac</th>
                 <th>Kich_thuoc</th>
+                <th>Ram</th>
                 <th>Mo_ta</th>
             </tr>
             <?php foreach ($sanpham as $sp) : ?>
@@ -36,6 +37,7 @@
                     <td><?= $nhu_cau ?></td>
                     <td><?= $mau_sac ?></td>
                     <td><?= $kich_thuoc ?></td>
+                    <td><?= $ram ?>GB</td>
                     <td><?= $mo_ta ?></td>
                     <td>
                         <a onclick="return confirm('Bạn có muốn xóa không ?')" href="?act=sanpham&ma_sp=<?= $ma_sp ?>">xóa</a> -

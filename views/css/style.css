@@ -606,8 +606,10 @@
 }
 .containers .main .box-all .sp-laptop {
   display: flex;
+  margin-left: 24px;
 }
 .containers .main .box-all .sp-laptop .sp-one {
+  color: black;
   width: 20%;
   float: left;
   margin-left: 17px;
@@ -664,6 +666,7 @@
 .containers .main .box-spnb .sp-laptop .sp-one {
   width: 20%;
   float: left;
+  color: black;
   margin-bottom: 30px;
   margin-left: 17px;
   border-radius: 10px;
@@ -729,6 +732,7 @@
   display: none;
 }
 .containers .main .product-your .sp-laptops .sp-one {
+  color: #000;
   width: 18%;
   float: left;
   margin-left: 20px;
@@ -806,38 +810,42 @@
   display: flex;
   position: sticky;
 }
-.containers .main .box-spnb .sp-laptop .sp-one {
+.containers .main .box-spnb .sp-laptop a {
+  margin-left: 8px;
+}
+.containers .main .box-spnb .sp-laptop a .sp-one {
   width: 20%;
   float: left;
+  color: black;
   margin-bottom: 30px;
   margin-left: 17px;
   border-radius: 10px;
   transition: tranform 0.9;
 }
-.containers .main .box-spnb .sp-laptop .sp-one:hover {
+.containers .main .box-spnb .sp-laptop a .sp-one:hover {
   transform: scale(1.1);
   opacity: 0.9;
 }
-.containers .main .box-spnb .sp-laptop .sp-one img {
+.containers .main .box-spnb .sp-laptop a .sp-one img {
   width: 230px;
   height: 230px;
 }
-.containers .main .box-spnb .sp-laptop .sp-one .text-sp {
+.containers .main .box-spnb .sp-laptop a .sp-one .text-sp {
   background-color: white;
   width: 230px;
   height: 150px;
 }
-.containers .main .box-spnb .sp-laptop .sp-one .text-sp legend {
+.containers .main .box-spnb .sp-laptop a .sp-one .text-sp legend {
   margin: 0px 20px;
   opacity: 0.6;
   font-size: 20px;
   font-weight: bold;
 }
-.containers .main .box-spnb .sp-laptop .sp-one .text-sp p {
+.containers .main .box-spnb .sp-laptop a .sp-one .text-sp p {
   font-size: 13px;
   margin: 15px 20px;
 }
-.containers .main .box-spnb .sp-laptop .sp-one .text-sp span {
+.containers .main .box-spnb .sp-laptop a .sp-one .text-sp span {
   color: blue;
   margin: 0px 20px;
   font-weight: bold;
@@ -1026,6 +1034,7 @@
 }
 .containers .main .pro-relate .sp-laptop .sp-one {
   width: 20%;
+  color: #000;
   float: left;
   margin-bottom: 30px;
   margin-left: 17px;
@@ -1148,6 +1157,7 @@
 .containers .main .sanpham .rights .sp-laptop .sp-one {
   margin-top: 20px;
   width: 20%;
+  color: #000;
   float: left;
   border-radius: 10px;
   transition: tranform 0.9;

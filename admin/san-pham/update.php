@@ -62,6 +62,14 @@
                 </option>
             <?php endforeach; ?>
         </select> <br>
+        Ram: <select name="ram" id="" style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
+            <option value="0">Chọn ram</option>
+            <?php foreach ($loai as $lo) : ?>
+                <option value="<?= $lo['ma_loai'] ?>"> 
+                    <?= $lo['ram'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select> <br>
         <input type="hidden" name = "ma_sp">
         <button name="themmoi" class="btn btn-outline-success">Thêm mới</button>
         <a href="?act=sanpham"><button type="button" class="btn btn-outline-primary">Danh sách</button></a>
