@@ -45,33 +45,6 @@ function shows(n) {
   slides[indexSlide - 1].style.display = "block";
 }
 
-// login-signup
-
-function loginopen() {
-  document.getElementById("forms").style.display = "block";
-}
-
-function registeropen() {
-  document.getElementById("register").style.display = "block";
-  document.getElementById("forms").style.display = "none";
-}
-
-function loginclose() {
-  document.getElementById("forms").style.display = "none";
-}
-
-function registerclose() {
-  document.getElementById("register").style.display = "none";
-}
-
-var z = document.getElementById("register");
-window.onclick = function (event) {
-  if (event.target == z) {
-    modal.style.display = "none";
-  }
-};
-
-
 
 //shop
 function OpenCart() {

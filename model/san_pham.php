@@ -101,11 +101,13 @@ function delete_sp_item($ma_sp)
 function list_one_sp($ma_sp)
 {
     $sql = "SELECT * from sp_laptop WHERE ma_sp = $ma_sp";
+    // echo $sql; die; 
     return pdo_query_one($sql);
 }
 
-function update_sp($ma_sp, $ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai)
+function update_sp($ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai,$ma_sp)
 {
     $sql = "UPDATE sp_laptop SET ten_sp = '$ten_sp',  gia_sp = '$gia_sp',  hinh_sp = '$hinh_sp',  mo_ta = '$mo_ta',  ma_loai = '$ma_loai' WHERE ma_sp = $ma_sp";
+    // var_dump($sql);die;
     pdo_execute($sql);
 }

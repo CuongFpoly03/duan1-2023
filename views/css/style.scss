@@ -56,15 +56,14 @@
               border-radius: 10px;
               width: 590px;
               height: 37px;
-              padding: 2px 40px;
+              padding: 2px 70px;
               margin: 0px 20px;
             }
-            .button{
-              border: 10px solid black;
+            .button {
               height: 4px;
-              border-radius: 10px;
-              padding: 100px;
-              margin: 10px 33px;
+              border: none; 
+              font-size: 14px;
+              margin: 7px 27px;
               position: absolute;
               background-color: white;
             }
@@ -82,7 +81,7 @@
           }
           .shop {
             a {
-              margin-right: 80px;
+              margin-right: 40px;
               i {
                 font-size: 22px;
                 color: black;
@@ -168,245 +167,26 @@
             }
           }
         }
+        .account{
+          margin-right: 70px;
+          border: 1px solid #e1522a;
+          background-color: #e1522a;
+          border-radius: 5px;
+          text-align: center;
+          a{
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #ffffff;
+            font-weight: bold;
+          }
+        }
       }
     }
     .sticky {
       position: fixed;
       top: 0;
       width: 100%;
-    }
-    // BAIlogin/register
-    .account {
-      margin-right: 100px;
-      .butonss {
-        border-radius: 5px;
-        border: 1px solid #e1522a;
-        color: white;
-        background-color: #e1522a;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 13px;
-        &:hover {
-          color: brown;
-        }
-      }
-      .forms {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        z-index: 4;
-        overflow: auto;
-        display: none;
-        left: 0;
-        top: 0;
-        padding: 60px;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.3);
-        form {
-          background-color: #fefefe;
-          margin: 0px auto;
-          border: 1px solid #fefefe;
-          border-radius: 5px;
-          width: 60%;
-          legend {
-            text-align: center;
-            font-size: 30px;
-            color: brown;
-            font-weight: bold;
-            margin: 20px 0px;
-          }
-          .form-close {
-            .close {
-              position: absolute;
-              top: 9%;
-              right: 24.5%;
-              color: #000;
-              font-size: 40px;
-              font-weight: bold;
-              cursor: pointer;
-              &:hover,
-              :focus {
-                color: brown;
-              }
-            }
-          }
-
-          .form-body {
-            margin: 20px 160px;
-            font-size: 20px;
-            input {
-              padding: 10px 15px;
-              width: 100%;
-              margin: 15px 0px;
-              border-radius: 5px;
-              display: inline-block;
-              box-sizing: border-box;
-              cursor: pointer;
-              &:hover {
-                opacity: 0.6;
-              }
-              &:focus {
-                background-color: #cdcdcd;
-                border: 1px solid #cdcdcd;
-              }
-            }
-            button {
-              padding: 5px 20px;
-              color: white;
-              font-weight: bold;
-              font-size: 18px;
-              background-color: #000;
-              border-radius: 5px;
-              &:hover {
-                opacity: 0.6;
-              }
-            }
-          }
-          .inputs {
-            margin-left: 158px;
-            font-size: 20px;
-          }
-
-          .bottom-form {
-            margin-left: 160px;
-            font-size: 20px;
-            margin-bottom: 40px;
-            margin-top: 20px;
-            span {
-              font-size: 14px;
-              color: blue;
-              font-weight: bold;
-              a {
-                color: blue;
-                text-decoration: none;
-              }
-            }
-            .password {
-              margin-left: 200px;
-            }
-          }
-        }
-        //add
-        .animations {
-          -webkit-animation: zoom 0.8s;
-          animation: zoom 0.8s;
-        }
-
-        @-webkit-keyframes zoom {
-          from {
-            -webkit-transform: scale(0);
-          }
-          to {
-            -webkit-transform: scale(1);
-          }
-        }
-
-        @keyframes zoom {
-          from {
-            transform: scale(0);
-          }
-          to {
-            transform: scale(1);
-          }
-        }
-      }
-    }
-
-    //register
-    .account {
-      .register {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        overflow: auto;
-        .sticky {
-          position: fixed;
-          top: 0;
-          width: 100%;
-        }
-        z-index: 4;
-        padding: 60px;
-        left: 0;
-        top: 0;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.3);
-        display: none;
-        form {
-          background-color: #fefefe;
-          margin: 0px auto;
-          border: 1px solid #fefefe;
-          border-radius: 5px;
-          width: 60%;
-          legend {
-            text-align: center;
-            margin-top: 20px;
-            color: brown;
-            font-size: 25px;
-            font-weight: bold;
-          }
-          .form-close {
-            .close {
-              position: absolute;
-              font-size: 40px;
-              top: 9%;
-              right: 24.5%;
-              font-weight: bold;
-              cursor: pointer;
-              &:hover {
-                color: brown;
-              }
-            }
-          }
-          .bodyform {
-            font-size: 20px;
-            padding: 0px auto;
-            label {
-              margin-left: 150px;
-              margin-top: 30px;
-            }
-            .input {
-              padding: 10px 30px;
-              width: 60%;
-              margin: 5px 150px;
-              border-radius: 5px;
-              display: inline-block;
-              box-sizing: border-box;
-              cursor: pointer;
-              &:hover {
-                opacity: 0.6;
-              }
-              &:focus {
-                background-color: #cdcdcd;
-                border: 1px solid #cdcdcd;
-              }
-            }
-            button {
-              padding: 10px 30px;
-              color: white;
-              font-weight: bold;
-              font-size: 20px;
-              background-color: #000;
-              border-radius: 5px;
-              cursor: pointer;
-              &:hover {
-                opacity: 0.6;
-              }
-            }
-          }
-          .label {
-            margin-left: 150px;
-          }
-          .bottomform {
-            margin: 40px 155px;
-            .button {
-              border: 1px solid black;
-              padding: 7px 25px;
-              background-color: black;
-              color: white;
-            }
-          }
-        }
-      }
     }
     //BAI banner update
     .update-banner {
@@ -655,7 +435,7 @@
           }
         }
       }
-    
+
       .sp-laptop {
         display: flex;
         margin-left: 24px;
@@ -720,7 +500,7 @@
         .sp-one {
           width: 20%;
           float: left;
-          color:black;
+          color: black;
           margin-bottom: 30px;
           margin-left: 17px;
           border-radius: 10px;
@@ -870,48 +650,48 @@
       .sp-laptop {
         display: flex;
         position: sticky;
-        a{
-        // display: block ;
-        margin-left: 8px;
-        .sp-one {
-          width: 20%;
-          float: left;
-          color: black;
-          margin-bottom: 30px;
-          margin-left: 17px;
-          border-radius: 10px;
-          transition: tranform 0.9;
-          &:hover {
-            transform: scale(1.1);
-            opacity: 0.9;
-          }
-          img {
-            width: 230px;
-            height: 230px;
-          }
-          .text-sp {
-            background-color: white;
-            width: 230px;
-            height: 150px;
-            legend {
-              margin: 0px 20px;
-              opacity: 0.6;
-              font-size: 20px;
-              font-weight: bold;
+        a {
+          // display: block ;
+          margin-left: 8px;
+          .sp-one {
+            width: 20%;
+            float: left;
+            color: black;
+            margin-bottom: 30px;
+            margin-left: 17px;
+            border-radius: 10px;
+            transition: tranform 0.9;
+            &:hover {
+              transform: scale(1.1);
+              opacity: 0.9;
             }
-            p {
-              font-size: 13px;
-              margin: 15px 20px;
+            img {
+              width: 230px;
+              height: 230px;
             }
-            span {
-              color: blue;
-              margin: 0px 20px;
-              font-weight: bold;
-              padding-bottom: 20px;
+            .text-sp {
+              background-color: white;
+              width: 230px;
+              height: 150px;
+              legend {
+                margin: 0px 20px;
+                opacity: 0.6;
+                font-size: 20px;
+                font-weight: bold;
+              }
+              p {
+                font-size: 13px;
+                margin: 15px 20px;
+              }
+              span {
+                color: blue;
+                margin: 0px 20px;
+                font-weight: bold;
+                padding-bottom: 20px;
+              }
             }
           }
         }
-      }
       }
     }
     // BAI TIN
@@ -1278,6 +1058,104 @@
                 padding-bottom: 20px;
               }
             }
+          }
+        }
+      }
+    }
+  }
+  .forms {
+    margin: 30px auto;
+    background-color: white;
+    width: 700px;
+    height: 500px;
+    form {
+      text-align: center;
+      legend {
+        font-size: 23px;
+        font-weight: bold;
+        margin: 20px 0px;
+      }
+      .form-body {
+        text-align: left;
+        margin-left: 155px;
+        label {
+          margin: 10px 0px;
+        }
+        input {
+          width: 400px;
+          padding: 15px 10px;
+          height: 50px;
+        }
+        button {
+          margin-top: 50px;
+          padding: 8px 20px;
+          background-color: black;
+          color: wheat;
+          border-radius: 5px;
+          &:hover {
+            background-color: white;
+            color: black;
+          }
+        }
+      }
+      .bottom-form {
+        margin-top: 40px;
+        span {
+          margin: 0px 80px;
+          font-size: 14px;
+          color: blue;
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .register {
+    margin: 30px auto;
+    background-color: white;
+    width: 700px;
+    height: 500px;
+    form {
+      text-align: center;
+      legend {
+        font-size: 23px;
+        font-weight: bold;
+        margin: 20px 0px;
+      }
+      .bodyform {
+        // margin-left: 155px;
+        text-align: left;
+        label {
+          margin: 10px 150px;
+          // float: left;
+        }
+        input {
+          width: 400px;
+          padding: 15px 10px;
+          height: 50px;
+          margin: 0px 150px;
+        }
+        .bottomform {
+          button {
+            margin-top: 50px;
+            margin-left: 150px;
+            padding: 8px 20px;
+            background-color: black;
+            color: wheat;
+            border-radius: 5px;
+            &:hover {
+              background-color: white;
+              color: black;
+            }
+          }
+          a {
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 11px 20px;
+            color: wheat;
+            background-color: red;
+            margin-left: 200px;
           }
         }
       }

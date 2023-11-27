@@ -61,15 +61,14 @@
   border-radius: 10px;
   width: 590px;
   height: 37px;
-  padding: 2px 40px;
+  padding: 2px 70px;
   margin: 0px 20px;
 }
 .containers header .top .navbar .container-fluid .search .button {
-  border: 10px solid black;
   height: 4px;
-  border-radius: 10px;
-  padding: 100px;
-  margin: 10px 33px;
+  border: none;
+  font-size: 14px;
+  margin: 7px 27px;
   position: absolute;
   background-color: white;
 }
@@ -85,7 +84,7 @@
   font-weight: bold;
 }
 .containers header .top .navbar .container-fluid .shop a {
-  margin-right: 80px;
+  margin-right: 40px;
 }
 .containers header .top .navbar .container-fluid .shop a i {
   font-size: 22px;
@@ -167,220 +166,24 @@
   background-color: white;
   color: black;
 }
+.containers header .top .navbar .account {
+  margin-right: 70px;
+  border: 1px solid #e1522a;
+  background-color: #e1522a;
+  border-radius: 5px;
+  text-align: center;
+}
+.containers header .top .navbar .account a {
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: bold;
+}
 .containers header .sticky {
   position: fixed;
   top: 0;
   width: 100%;
-}
-.containers header .account {
-  margin-right: 100px;
-}
-.containers header .account .butonss {
-  border-radius: 5px;
-  border: 1px solid #e1522a;
-  color: white;
-  background-color: #e1522a;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 13px;
-}
-.containers header .account .butonss:hover {
-  color: brown;
-}
-.containers header .account .forms {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 4;
-  overflow: auto;
-  display: none;
-  left: 0;
-  top: 0;
-  padding: 60px;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.3);
-}
-.containers header .account .forms form {
-  background-color: #fefefe;
-  margin: 0px auto;
-  border: 1px solid #fefefe;
-  border-radius: 5px;
-  width: 60%;
-}
-.containers header .account .forms form legend {
-  text-align: center;
-  font-size: 30px;
-  color: brown;
-  font-weight: bold;
-  margin: 20px 0px;
-}
-.containers header .account .forms form .form-close .close {
-  position: absolute;
-  top: 9%;
-  right: 24.5%;
-  color: #000;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.containers header .account .forms form .form-close .close:hover,
-.containers header .account .forms form .form-close .close :focus {
-  color: brown;
-}
-.containers header .account .forms form .form-body {
-  margin: 20px 160px;
-  font-size: 20px;
-}
-.containers header .account .forms form .form-body input {
-  padding: 10px 15px;
-  width: 100%;
-  margin: 15px 0px;
-  border-radius: 5px;
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-.containers header .account .forms form .form-body input:hover {
-  opacity: 0.6;
-}
-.containers header .account .forms form .form-body input:focus {
-  background-color: #cdcdcd;
-  border: 1px solid #cdcdcd;
-}
-.containers header .account .forms form .form-body button {
-  padding: 5px 20px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  background-color: #000;
-  border-radius: 5px;
-}
-.containers header .account .forms form .form-body button:hover {
-  opacity: 0.6;
-}
-.containers header .account .forms form .inputs {
-  margin-left: 158px;
-  font-size: 20px;
-}
-.containers header .account .forms form .bottom-form {
-  margin-left: 160px;
-  font-size: 20px;
-  margin-bottom: 40px;
-  margin-top: 20px;
-}
-.containers header .account .forms form .bottom-form span {
-  font-size: 14px;
-  color: blue;
-  font-weight: bold;
-}
-.containers header .account .forms form .bottom-form span a {
-  color: blue;
-  text-decoration: none;
-}
-.containers header .account .forms form .bottom-form .password {
-  margin-left: 200px;
-}
-.containers header .account .forms .animations {
-  animation: zoom 0.8s;
-}
-@keyframes zoom {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-.containers header .account .register {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  overflow: auto;
-  z-index: 4;
-  padding: 60px;
-  left: 0;
-  top: 0;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.3);
-  display: none;
-}
-.containers header .account .register .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-.containers header .account .register form {
-  background-color: #fefefe;
-  margin: 0px auto;
-  border: 1px solid #fefefe;
-  border-radius: 5px;
-  width: 60%;
-}
-.containers header .account .register form legend {
-  text-align: center;
-  margin-top: 20px;
-  color: brown;
-  font-size: 25px;
-  font-weight: bold;
-}
-.containers header .account .register form .form-close .close {
-  position: absolute;
-  font-size: 40px;
-  top: 9%;
-  right: 24.5%;
-  font-weight: bold;
-  cursor: pointer;
-}
-.containers header .account .register form .form-close .close:hover {
-  color: brown;
-}
-.containers header .account .register form .bodyform {
-  font-size: 20px;
-  padding: 0px auto;
-}
-.containers header .account .register form .bodyform label {
-  margin-left: 150px;
-  margin-top: 30px;
-}
-.containers header .account .register form .bodyform .input {
-  padding: 10px 30px;
-  width: 60%;
-  margin: 5px 150px;
-  border-radius: 5px;
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-.containers header .account .register form .bodyform .input:hover {
-  opacity: 0.6;
-}
-.containers header .account .register form .bodyform .input:focus {
-  background-color: #cdcdcd;
-  border: 1px solid #cdcdcd;
-}
-.containers header .account .register form .bodyform button {
-  padding: 10px 30px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  background-color: #000;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.containers header .account .register form .bodyform button:hover {
-  opacity: 0.6;
-}
-.containers header .account .register form .label {
-  margin-left: 150px;
-}
-.containers header .account .register form .bottomform {
-  margin: 40px 155px;
-}
-.containers header .account .register form .bottomform .button {
-  border: 1px solid black;
-  padding: 7px 25px;
-  background-color: black;
-  color: white;
 }
 .containers header .update-banner {
   position: absolute;
@@ -1196,6 +999,100 @@
   margin: 0px 10px;
   font-weight: bold;
   padding-bottom: 20px;
+}
+.containers .forms {
+  margin: 30px auto;
+  background-color: white;
+  width: 700px;
+  height: 500px;
+}
+.containers .forms form {
+  text-align: center;
+}
+.containers .forms form legend {
+  font-size: 23px;
+  font-weight: bold;
+  margin: 20px 0px;
+}
+.containers .forms form .form-body {
+  text-align: left;
+  margin-left: 155px;
+}
+.containers .forms form .form-body label {
+  margin: 10px 0px;
+}
+.containers .forms form .form-body input {
+  width: 400px;
+  padding: 15px 10px;
+  height: 50px;
+}
+.containers .forms form .form-body button {
+  margin-top: 50px;
+  padding: 8px 20px;
+  background-color: black;
+  color: wheat;
+  border-radius: 5px;
+}
+.containers .forms form .form-body button:hover {
+  background-color: white;
+  color: black;
+}
+.containers .forms form .bottom-form {
+  margin-top: 40px;
+}
+.containers .forms form .bottom-form span {
+  margin: 0px 80px;
+  font-size: 14px;
+  color: blue;
+}
+.containers .forms form .bottom-form span a {
+  text-decoration: none;
+}
+.containers .register {
+  margin: 30px auto;
+  background-color: white;
+  width: 700px;
+  height: 500px;
+}
+.containers .register form {
+  text-align: center;
+}
+.containers .register form legend {
+  font-size: 23px;
+  font-weight: bold;
+  margin: 20px 0px;
+}
+.containers .register form .bodyform {
+  text-align: left;
+}
+.containers .register form .bodyform label {
+  margin: 10px 150px;
+}
+.containers .register form .bodyform input {
+  width: 400px;
+  padding: 15px 10px;
+  height: 50px;
+  margin: 0px 150px;
+}
+.containers .register form .bodyform .bottomform button {
+  margin-top: 50px;
+  margin-left: 150px;
+  padding: 8px 20px;
+  background-color: black;
+  color: wheat;
+  border-radius: 5px;
+}
+.containers .register form .bodyform .bottomform button:hover {
+  background-color: white;
+  color: black;
+}
+.containers .register form .bodyform .bottomform a {
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 11px 20px;
+  color: wheat;
+  background-color: red;
+  margin-left: 200px;
 }
 
 .footer {

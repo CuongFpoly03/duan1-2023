@@ -7,6 +7,7 @@ require_once "../model/khach_hang.php";
 $act = $_GET['act'] ?? "";
 switch ($act) {
     case "":
+        $title = "Tổng Hợp";
         $VIEW = './layout/home.php';
         break;
         //BAI LOAI
@@ -102,7 +103,7 @@ switch ($act) {
         $title = "Update sản phẩm";
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             extract($_POST);
-
+            // var_dump($_POST);die;
             $file = $_FILES['hinh_sp'];
             //Lấy tên ảnh
             if ($file['size'] > 0) {
@@ -112,7 +113,8 @@ switch ($act) {
             } else {
                 $hinh_sp = $_POST['hinh_sp'];
             }
-            update_sp($ma_sp, $ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai);
+            update_sp($ma_sp,$ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai);
+
             $thongbao = "Cập nhập dữ liệu thành công";
         }
         if (isset($_GET['ma_sp'])) {
@@ -121,6 +123,7 @@ switch ($act) {
             extract($sp);
             $VIEW = "san-pham/update.php";
         }
+        $loai = all_list_loai();
         break;
         //KHACH HANG
     case "listkh":

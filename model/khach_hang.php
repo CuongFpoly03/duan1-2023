@@ -33,4 +33,22 @@ function update_kh($ma_kh, $ten_kh, $email, $mat_khau, $dia_chi, $dien_thoai, $v
     $sql = "UPDATE khach_hang SET ten_kh = '$ten_kh',  email = '$email',  mat_khau = '$mat_khau',  dia_chi = '$dia_chi',  dien_thoai = '$dien_thoai', vai_tro = '$vai_tro' WHERE ma_kh = $ma_kh";
     pdo_execute($sql);
 }
+
+function add_khachhang($email, $ten_kh, $mat_khau)
+{
+    $sql = "INSERT INTO khach_hang(email, ten_kh, mat_khau ) VALUES('$email','$ten_kh','$mat_khau')";
+    pdo_execute($sql);
+}
+
+function check($ten_kh, $mat_khau){
+    $sql = "SELECT * FROM khach_hang WHERE ten_kh = '".$ten_kh."' AND mat_khau = '".$mat_khau."'";
+    $dn = pdo_query_one($sql);
+    return $dn;
+}
+
+function check_email($email){
+    $sql = "SELECT * FROM khach_hang WHERE email = '".$email."' ";
+    $kh = pdo_query_one($sql);
+    return $kh;
+}
 ?>

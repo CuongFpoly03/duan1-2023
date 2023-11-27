@@ -52,12 +52,12 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 18px; font-weight: bold">
-                     Danh mục
+                    Danh mục
                   </a>
                   <ul class="dropdown-menu">
                     <?php foreach ($loaidanhmuc as $ldm) : ?>
                       <?php extract($ldm) ?>
-                    <li><a class="dropdown-item" href="?act=locloai&ma_loai=<?=$ma_loai?>"><?= $ten_loai ?></a></li>
+                      <li><a class="dropdown-item" href="?act=locloai&ma_loai=<?= $ma_loai ?>"><?= $ten_loai ?></a></li>
                     <?php endforeach; ?>
                     <!-- <li><a class="dropdown-item" href="#">Lenovo</a></li>
                     <li><a class="dropdown-item" href="#">Hp</a></li>
@@ -69,17 +69,15 @@
               </ul>
             </div>
             <!-- TEST search -->
-            <form action="?act=search" method = "POST" class="search">
-              <button type="submit">Search</button>
-              <input type="text" name="kyw" placeholder="search..">
+            <form action="?act=search" method="POST" class="search">
+              <button class="button" type="submit">Search</button>
+              <input type="text" name="kyw">
             </form>
-            <?php {/*BAI sp yêu thích */
-            } ?>
+
             <div class="favorite">
               <a href="#"><i class="fa-regular fa-heart"></i></a>
             </div>
-            <?php {/*BAI giỏ hàng */
-            } ?>
+
             <div class="shop">
               <a onclick="OpenCart()" href="#">
                 <span id="shop">2</span>
@@ -109,63 +107,27 @@
               </aside>
             </section>
           </div>
-          <!-- <?php // {/*BAI tài khoản */} 
-                ?> -->
-          <div class="account">
-            <button class="butonss" id="login" onclick="loginopen()" href="">TÀI KHOẢN</button>
-            <section id="forms" class="forms" style="display: none">
-              <form class="" action="login.php" method="POST">
-                <legend>ĐĂNG NHẬP</legend>
-                <aside class="form-close">
-                  <span class="close" onclick="loginclose()">&times;</span>
-                </aside>
-                <aside class="form-body">
-                  <label for="username"><b>Tên khách hàng</b></label> <br>
-                  <input type="text" placeholder="Username" name="name" required> <br>
-
-                  <label for="Password"><b>Mật khẩu</b></label><br>
-                  <input type="password" placeholder="Password" name="password" required><br>
-                  <button type="submit">Đăng nhập</button>
-                </aside>
-
-                <label class="inputs" for="">
-                  <input class="input" type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-
-                <aside class="bottom-form">
-                  <span id="opensignup" onclick="registeropen()" class="">Tạo <a href="#">Tài khoản</a></span>
-                  <span class="password">Quên <a href="#">Mật khẩu?</a></span>
-                </aside>
-              </form>
-            </section>
-
-            <section class="register" id="register">
-              <form class="buttons" action="register.php" method="POST">
-                <legend>RESGISTER</legend>
-                <aside class="form-close">
-                  <span id="closeform" class="close" onclick="registerclose()">&times;</span>
-                </aside>
-
-                <asid class="bodyform">
-                  <label for="">Email</label><br>
-                  <input class="input" type="email" placeholder="Email" name="email" required> <br>
-
-                  <label for="">Mật Khẩu</label><br>
-                  <input class="input" type="Mật khẩu" placeholder="Password" name="password" required> <br>
-
-                  <label for="">Nhập lại mật khẩu</label><br>
-                  <input class="input" type="text" placeholder="Nhập lại mk" name="rep-password" required> <br>
-                  </aside>
-
-                  <aside class="label">
-                    <input type="checkbox" checked="checked" name="checkbox">Remember me
-                  </aside>
-
-                  <aside class="bottomform">
-                    <button class="button">Đăng ký</button>
-                  </aside>
-              </form>
-            </section>
-          </div>
+          <?php
+          if (isset($_SESSION['ten_kh'])) {
+            extract($_SESSION['ten_kh']);
+          ?>
+            <div class="nav-item dropdown"  style="background-color: white; height: 90px">
+              <a style="border: 1px solid #F1F3F4;margin-top: 15px;font-weight: bold; text-align: center;margin-right: 100px;border-radius: 5px; padding: 5px;background-color: #F1F3F4;" href="" class="nav-link " data-bs-toggle="dropdown">👨🏻‍💼<?= $ten_kh ?></a>
+              <div class="dropdown-menu m-0">
+                <a href="" class="dropdown-item">Đổi mật khẩu</a>
+                <a href="" class="dropdown-item">cập nhập tài khoản</a>
+                <?php if ($vai_tro == 1) { ?> <a href="admin/index.php" class="dropdown-item">Đăng nhập Admin</a><?php } ?>
+                <a href="?act=thoat" class="dropdown-item">Thoát</a>
+              </div>
+            </div>
+          <?php } else {
+          ?>
+            <a style="background-color: white;margin-right: 100px;font-size: 30px" class="btn-sm-square bg-white rounded-circle ms-3" href="?act=login">
+              <small class="fa fa-user text-body"></small>
+            </a>
+            <?php //include_once 'views/accounts/login.php'; 
+            ?>
+          <?php }
+          ?>
         </nav>
       </section>

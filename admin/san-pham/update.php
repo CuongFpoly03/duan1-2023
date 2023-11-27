@@ -33,31 +33,31 @@
         Tên Loại: <select name="ma_loai" id="" style="width:100%; border-radius: 5px; padding: 5px 10px">
             <option value="0">Chọn loại</option>
             <?php foreach ($loai as $lo) : ?>
-                <option value="<?= $lo['ma_loai'] ?>" <?= ($lo['ma_loai'] == $ma_sp ) ? 'selected' : '' ?>> 
+                <option value="<?= $lo['ma_loai'] ?>" <?= ($lo['ma_loai'] == $ma_loai ) ? 'selected' : '' ?>> 
                     <?= $lo['ten_loai'] ?>
                 </option>
             <?php endforeach; ?>
         </select> <br>
-        Nhu Cầu: <select name="ma_loai" id="" style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
+        Nhu Cầu: <select name="nhu_cau" id="" style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
             <option value="0">Chọn nhu cầu</option>
             <?php foreach ($loai as $lo) : ?>
-                <option value="<?= $lo['ma_loai'] ?>">
+                <option value="<?= $lo['ma_loai'] ?>" <?= ($lo['ma_loai'] == $ma_loai ) ? 'selected' : '' ?>>
                     <?= $lo['nhu_cau'] ?>
                 </option>
             <?php endforeach; ?>
         </select> <br>
-        Màu Sắc: <select name="ma_loai" id="" style="width:100%; border-radius: 5px; padding: 5px 10px">
+        Màu Sắc: <select name="mau_sac" id="" style="width:100%; border-radius: 5px; padding: 5px 10px">
             <option value="0">Chọn màu sắc</option>
             <?php foreach ($loai as $lo) : ?>
-                <option value="<?= $lo['ma_loai'] ?>"> 
+                <option value="<?= $lo['ma_loai'] ?>" <?= ($lo['ma_loai'] == $ma_loai ) ? 'selected' : '' ?>> 
                  <?= $lo['mau_sac'] ?>
                 </option>
             <?php endforeach; ?>
         </select> <br>
-        Kích Thước: <select name="ma_loai" id="" style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
+        Kích Thước: <select name="kich_thuoc" id="" style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
             <option value="0">Chọn kích thước</option>
             <?php foreach ($loai as $lo) : ?>
-                <option value="<?= $lo['ma_loai'] ?>"> 
+                <option value="<?= $lo['ma_loai'] ?>" <?= ($lo['ma_loai'] == $ma_loai ) ? 'selected' : '' ?>> 
                     <?= $lo['kich_thuoc'] ?>
                 </option>
             <?php endforeach; ?>
@@ -65,13 +65,13 @@
         Ram: <select name="ram" id="" style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
             <option value="0">Chọn ram</option>
             <?php foreach ($loai as $lo) : ?>
-                <option value="<?= $lo['ma_loai'] ?>"> 
+                <option value="<?= $lo['ma_loai'] ?>" <?= ($lo['ma_loai'] == $ma_loai ) ? 'selected' : '' ?>> 
                     <?= $lo['ram'] ?>
                 </option>
             <?php endforeach; ?>
         </select> <br>
         <input type="hidden" name = "ma_sp">
-        <button name="themmoi" class="btn btn-outline-success">Thêm mới</button>
+        <button name="themmoi" class="btn btn-outline-success">Cập nhập</button>
         <a href="?act=sanpham"><button type="button" class="btn btn-outline-primary">Danh sách</button></a>
     </form>
 </section>
