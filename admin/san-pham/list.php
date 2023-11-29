@@ -17,6 +17,7 @@
                 <th>Ma_sp</th>
                 <th>Ten_sp</th>
                 <th>Gia_sp</th>
+                <th>So_luong</th>
                 <th>Hinh_sp</th>
                 <th>Ten_loai</th>
                 <th>Nhu_cau</th>
@@ -32,6 +33,7 @@
                     <td><?= $ma_sp ?></td>
                     <td><?= $ten_sp ?></td>
                     <td><?= $gia_sp ?></td>
+                    <td><?= $so_luong ?></td>
                     <td><img src="../views/imgs/<?= $hinh_sp ?>" alt="" width="90"></td>
                     <td><?= $ten_loai ?></td>
                     <td><?= $nhu_cau ?></td>

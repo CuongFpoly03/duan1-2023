@@ -1,79 +1,79 @@
-<div class="all-category">
-  <p>Thương hiệu<i class="fa-solid fa-caret-down"></i></p>
-  <div class="function-lap" id="displays">
-    <div class="displays">
-      <input type="checkbox" checked />Tất cả <br>
-      <?php foreach ($banner as $ldm) : ?>
-        <?php extract($ldm) ?>
-        <input type="checkbox" /><?= $ten_loai ?>
-      <?php endforeach; ?>
-    </div>
-    <!-- <div class="displays">
-            <input type="checkbox" />Dell <input type="checkbox" />HP
-          </div> -->
-  </div>
-  <hr style="border: 2px soldi black" />
-</div>
-<div class="navbar-nhucau" id="displays">
-  <p>Nhu cầu<i class="fa-solid fa-caret-down"></i></p>
-  <div class="displays">
-    <input type="checkbox" checked />Tất cả <br>
-    <?php foreach ($banner as $ldm) : ?>
-      <?php extract($ldm) ?>
-      <input type="checkbox" /><?= $nhu_cau ?> <br>
+<style>
+  .buttons {
+    border: none;
+    background-color: #101037;
+    border: 1px solid #101037;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 1px 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .small-update {
+    font-size: 15px;
+    margin: 10px 15px;
+    display: block;
+  }
+
+  .small-update a {
+    color: black;
+    text-decoration: none;
+    padding: 2px 10px;
+  }
+
+  .buttons i {
+    float: right;
+    margin-right: 5px;
+  }
+
+  .small-update a:active {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+</style>
+
+
+<div class="box-banners">
+  <button class="buttons">Laptop theo theo nhu cầu <i class="fa-solid fa-caret-down"></i></button>
+  <div class="small-update nc" id="nhucau">
+    <?php foreach ($banner as $bn) : ?>
+      <?php extract($bn) ?>
+      <a href="?act=locnhucau&ma_loai=<?= $ma_loai ?>"><?= $nhu_cau ?></a><br>
     <?php endforeach; ?>
-    <!-- <input type="checkbox" />Sinh viên <br />
-          <input type="checkbox" />Đồ họa <br />
-          <input type="checkbox" />Văn phòng <br />
-          <input type="checkbox" />Mỏng nhẹ<br />
-          <input type="checkbox" />Gaming<br /> -->
   </div>
-  <hr style="border: 2px soldi black" />
 </div>
-<div class="all-category">
-  <p>Màu sắc<i class="fa-solid fa-caret-down"></i></p>
-  <div class="function-lap" id="displays">
-    <div class="displays">
-      <input type="checkbox" checked />Tất cả <br>
-      <?php foreach ($banner as $ldm) : ?>
-        <?php extract($ldm) ?>
-        <input type="checkbox" /> Màu <?= $mau_sac ?> <br>
-      <?php endforeach; ?>
-    </div>
-    <!-- <div class="displays">
-      <input type="checkbox" />Vàng <input type="checkbox" />Trắng
-    </div> -->
+<hr style="border: 2px soldi black" />
+
+<div class="box-banners">
+  <button class="buttons">Laptop màu sắc <i class="fa-solid fa-caret-down"></i> </button>
+  <div class="small-update kt" id="mausac">
+    <?php foreach ($banner as $bn) : ?>
+      <?php extract($bn) ?>
+      <a href="?act=locmausac&ma_loai=<?= $ma_loai ?>"><?= $mau_sac ?></a> <br>
+    <?php endforeach; ?>
   </div>
-  <hr style="border: 2px soldi black" />
 </div>
-<div class="all-category" id="displays">
-  <p>Kích thước<i class="fa-solid fa-caret-down"></i></p>
-  <div class="function-lap">
-    <div class="displays">
-    <input type="checkbox" checked />Tất cả <br>
-      <?php foreach ($banner as $ldm) : ?>
-        <?php extract($ldm) ?>
-        <input type="checkbox" /><?= $kich_thuoc ?> Inch <br>
-      <?php endforeach; ?>
-    </div>
-    <!-- <div class="displays">
-      <input type="checkbox" />16 <input type="checkbox" />16,2
-    </div> -->
+<hr style="border: 2px soldi black" />
+
+<div class="box-banners">
+  <button class="buttons">Laptop kích thước <i class="fa-solid fa-caret-down"></i></button>
+  <div class="small-update kt" id="kichthuoc">
+    <?php foreach ($banner as $bn) : ?>
+      <?php extract($bn) ?>
+      <a href="?act=lockichthuoc&ma_loai=<?= $ma_loai ?>"><?= $kich_thuoc ?>Inch</a>
+    <?php endforeach; ?>
   </div>
-  <hr style="border: 2px soldi black" />
 </div>
-<div class="all-category" id="displays">
-  <p>Ram<i class="fa-solid fa-caret-down"></i></p>
-  <div class="function-lap">
-    <div class="displays">
-    <input type="checkbox" checked />Tất cả <br>
-      <?php foreach ($banner as $ldm) : ?>
-        <?php extract($ldm) ?>
-        <input type="checkbox" /><?= $ram ?> GB <br>
-      <?php endforeach; ?>
-    </div>
-    <!-- <div class="displays">
-      <input type="checkbox" />16 <input type="checkbox" />16,2
-    </div> -->
+<hr style="border: 2px soldi black" />
+<div class="box-banner">
+  <button class="buttons">Laptop theo Ram <i class="fa-solid fa-caret-down"></i></button>
+  <div class="small-update tg">
+    <?php foreach ($banner as $bn) : ?>
+      <?php extract($bn) ?>
+      <a href="?act=locram&ma_loai=<?= $ma_loai ?>"><?= $ram ?> GB </a><br>
+    <?php endforeach; ?>
   </div>
 </div>

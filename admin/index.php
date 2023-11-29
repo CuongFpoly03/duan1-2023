@@ -2,6 +2,10 @@
 require_once "../model/loai_laptop.php";
 require_once "../model/san_pham.php";
 require_once "../model/khach_hang.php";
+require_once "../model/binhluan.php";
+require_once "../model/don_hang.php";
+require_once "../model/donhang_ct.php";
+
 
 
 $act = $_GET['act'] ?? "";
@@ -91,8 +95,7 @@ switch ($act) {
             $file = $_FILES['hinh_sp'];
             $hinh_sp = $file['name'];
             move_uploaded_file($file['tmp_name'], "../views/imgs/" . $hinh_sp);
-
-            add_sanpham($ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai);
+            add_sanpham($ten_sp, $gia_sp,$so_luong, $hinh_sp, $mo_ta, $ma_loai);
             header("location: ?act=sanpham");
             die;
         }
@@ -113,7 +116,7 @@ switch ($act) {
             } else {
                 $hinh_sp = $_POST['hinh_sp'];
             }
-            update_sp($ma_sp,$ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai);
+            update_sp($ma_sp, $ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai);
 
             $thongbao = "Cập nhập dữ liệu thành công";
         }
@@ -161,6 +164,57 @@ switch ($act) {
             extract($kh);
             $VIEW = "Khach-hang/update.php";
         }
+        break;
+        // binh luan
+    case 'binhluan':
+        $title = "bình luận";
+        if (isset($_GET['ma_bl'])) {
+            $ma_bl = $_GET['ma_bl'];
+            delete_bl($ma_bl);
+            $thongbao = "Xóa dữ liệu thành công!";
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $ma_bl = $_POST['ma_bl'];
+            delete_bl_item($ma_bl);
+            $thongbao = 'xóa dữ liệu thành công!';
+        }
+        $listbinhluan = list_binhluan();
+        $VIEW = "binh-luan/list.php";
+        break;
+    case "listdh":
+        $title = "Đơn hàng";
+        if (isset($_GET['ma_dh'])) {
+            $ma_dh = $_GET['ma_dh'];
+            delete_dh($ma_dh);
+            $thongbao = "Xóa dữ liệu thành công!";
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $ma_dh = $_POST['ma_dh'];
+            delete_dh_item($ma_dh);
+            $thongbao = 'xóa dữ liệu thành công!';
+        }
+        $listdh = load_all_dh();
+        // var_dump($listdh);
+        $VIEW = "don-hang/list.php";
+        break;
+    case "listdhct":
+        $title = "chi tiết đơn hàng";
+        if (isset($_GET['ma_ct'])) {
+            $ma_ct = $_GET['ma_ct'];
+            delete_ct($ma_ct);
+            $thongbao = "Xóa dữ liệu thành công!";
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $ma_ct = $_POST['ma_ct'];
+            delete_ctdh_item($ma_ct);
+            $thongbao = 'xóa dữ liệu thành công!';
+        }
+        $listct = load_all_ctdh();
+        // var_dump($listdh);
+        $VIEW = "chitietdonhang/list.php";
         break;
     default:
         // include "../admin/404.php";

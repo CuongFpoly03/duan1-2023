@@ -9,7 +9,7 @@ function all_list_loai()
 //LẤY 5 SP
 function all_list_namloai()
 {
-    $sql = "SELECT * FROM loai_laptop ORDER BY ma_loai DESC limit 0,5";
+    $sql = "SELECT * FROM loai_laptop ORDER BY ma_loai DESC limit 0,4";
     return pdo_query($sql);
 }
 

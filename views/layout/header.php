@@ -79,39 +79,23 @@
             </div>
 
             <div class="shop">
-              <a onclick="OpenCart()" href="#">
-                <span id="shop">2</span>
+              <a href="?act=viewdonhang">
+                <span id="shop">
+                  <?php
+                  if (isset($_SESSION['cart'])) {
+                    echo count($_SESSION['cart']);
+                  }
+                  ?>
+                </span>
                 <i class="fa-solid fa-cart-shopping"></i>
               </a>
             </div>
-            <section class="myshop" id="myshop">
-              <button class="closeshop" onclick="CloseShop()">&times;</button>
-              <aside class="overlay-content">
-                <div class="imgshop">
-                  <img src="views/imgs/banner1.jpg" alt="">
-                  <p>test trước thôi nhé kakakaka hehehehw!<br> <strong>599.000đ</strong></p>
-                </div>
-                <div class="imgshop">
-                  <img src="views/imgs/banner1.jpg" alt="">
-                  <p>test trước thôi nhé kakakaka hehehehw!<br> <strong>599.000đ</strong></p>
-                </div>
-
-                <aside class="total">
-                  <p>Tạm tính: <strong>1.118.000đ</strong></p>
-                </aside>
-
-                <aside class="button-cart">
-                  <div class="view" href="">Xem giỏ hàng</div>
-                  <div class="options" href="">Thanh toán</div>
-                </aside>
-              </aside>
-            </section>
           </div>
           <?php
           if (isset($_SESSION['ten_kh'])) {
             extract($_SESSION['ten_kh']);
           ?>
-            <div class="nav-item dropdown"  style="background-color: white; height: 90px">
+            <div class="nav-item dropdown" style="background-color: white; height: 90px">
               <a style="border: 1px solid #F1F3F4;margin-top: 15px;font-weight: bold; text-align: center;margin-right: 100px;border-radius: 5px; padding: 5px;background-color: #F1F3F4;" href="" class="nav-link " data-bs-toggle="dropdown">👨🏻‍💼<?= $ten_kh ?></a>
               <div class="dropdown-menu m-0">
                 <a href="" class="dropdown-item">Đổi mật khẩu</a>

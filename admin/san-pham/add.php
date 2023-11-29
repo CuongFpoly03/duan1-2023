@@ -20,6 +20,10 @@
             <input type="number " class="form-control" name="gia_sp" step="0.5" required>
         </div>
         <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">So_luong:</label>
+            <input type="number " class="form-control" name="so_luong" required>
+        </div>
+        <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Hinh_sp:</label>
             <input type="file" class="form-control" name="hinh_sp">
         </div>
@@ -34,7 +38,7 @@
                 <option value="<?= $lo['ma_loai'] ?>"> <?= $lo['ten_loai'] ?></option>
             <?php endforeach;?>
         </select> <br>
-        Nhu Cầu: <select name="ma_loai" id=""  style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
+        <!-- Nhu Cầu: <select name="ma_loai" id=""  style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
             <option value="0">Chọn nhu cầu</option>
             <?php foreach($loai as $lo) :?>
                 <option value="<?= $lo['ma_loai'] ?>"> <?= $lo['nhu_cau'] ?></option>
@@ -57,7 +61,7 @@
             <?php foreach($loai as $lo) :?>
                 <option value="<?= $lo['ma_loai'] ?>"> <?= $lo['ram'] ?></option>
             <?php endforeach;?>
-        </select> <br>
+        </select> <br> -->
         <button name="themmoi" class="btn btn-outline-success">Thêm mới</button>
         <a href="?act=sanpham"><button type="button" class="btn btn-outline-primary">Danh sách</button></a>
     </form>

@@ -18,7 +18,20 @@
                 <div class="small-update kt">
                     <?php foreach ($banner as $bn) : ?>
                         <?php extract($bn) ?>
-                        <a href=""><?= $kich_thuoc ?>Inch</a>
+                        <a href="?act=lockichthuoc&ma_loai=<?=$ma_loai?>"><?= $kich_thuoc ?>Inch</a>
+                    <?php endforeach; ?>
+                    <!-- <a href="">trên 15 inch</a>
+                    <a href="">Laptop 14 inch</a>
+                    <a href="">Laptop 15.6 vinch</a>
+                    <a href="">Laptop 16 inch</a> -->
+                </div>
+            </div>
+            <div class="box-banner">
+                <button class="button">Laptop màu sắc</button>
+                <div class="small-update kt">
+                    <?php foreach ($banner as $bn) : ?>
+                        <?php extract($bn) ?>
+                        <a href="?act=locmausac&ma_loai=<?=$ma_loai?>"><?= $mau_sac ?></a>
                     <?php endforeach; ?>
                     <!-- <a href="">trên 15 inch</a>
                     <a href="">Laptop 14 inch</a>
@@ -31,7 +44,7 @@
                 <div class="small-update nc">
                     <?php foreach ($banner as $bn) : ?>
                         <?php extract($bn) ?>
-                        <a href=""><?= $nhu_cau ?></a>
+                        <a href="?act=locnhucau&ma_loai=<?=$ma_loai?>"><?= $nhu_cau ?></a>
                     <?php endforeach; ?>
                     <!-- <a href="">Đồ họa</a>
                     <a href="">Văn phòng</a>
@@ -44,7 +57,7 @@
                 <div class="small-update tg">
                     <?php foreach ($banner as $bn) : ?>
                         <?php extract($bn) ?>
-                        <a href=""><?= $ram ?> GB</a>
+                        <a href="?act=locram&ma_loai=<?=$ma_loai?>"><?= $ram ?> GB</a>
                     <?php endforeach; ?>
                     <!-- <a href="">10-15 triệu</a>
                     <a href="">15-20 triệu</a>
@@ -176,6 +189,7 @@
                                 </p>
                                 <span><?= $gia_sp ?>đ</span>
                             </div>
+                            
                         </div>
                     </a>
 

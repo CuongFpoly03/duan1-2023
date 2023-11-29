@@ -1,7 +1,6 @@
 <div class="main">
     <div class="all-detail">
         <div class="left">
-
             <?php extract($sanphamct) ?>
             <div class="all-col">
                 <img src="views/imgs/<?= $hinh_sp ?>" alt="" />
@@ -10,14 +9,17 @@
                         <?= $ten_sp ?>
                     </legend>
                     <p>Thương hiệu: <?= $ten_loai ?></p>
+                    <p>Nhu cầu: <?= $nhu_cau ?></p>
+                    <p>Màu sắc: <?= $mau_sac ?></p>
+                    <p>Kích thước: <?= $kich_thuoc ?> INCH</p>
+                    <p>Ram: <?= $ram ?> GB</p>
                     <span>Giá: <?= $gia_sp ?> đ</span>
-                    <div class="submit">
+                    <div class="submit" style="margin-top: 30px">
                         <button>MUA NGAY</button>
-                        <button>THÊM VÀO GIỎ HÀNG</button>
+                        <a href="?act=cart&ma_sp=<?= $ma_sp ?>"><button>THÊM VÀO GIỎ HÀNG</button></a>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="right">
             <div class="top-detail">
@@ -40,7 +42,7 @@
         <legend>MÔ TẢ SẢN PHẨM</legend>
         <div class="small-des">
             <p>
-               <?= $mo_ta ?>
+                <?= $mo_ta ?><br>
                 - CPU: Intel Core i3-N305
                 - Màn hình: 14" IPS (1920 x 1080)
                 - RAM: 8GB Onboard LPDDR5 5200MHz
@@ -55,25 +57,32 @@
         </div>
     </div>
 
+    <div class="description">
+        <legend>BÌNH LUẬN VỀ SẢN PHẨM</legend>
+        <div class="small-des">
+            <iframe src="./views/layout/binhluanform.php?ma_sp= <?= $ma_sp ?>" frameborder="0" width="100%" height="270px"></iframe>            
+        </div>
+    </div>
+
     <!-- BAI SP LIÊN QUAN -->
     <div class="pro-relate">
         <div class="text-laptop">
-            <legend>SẢN PHẨM LIÊN QUAN</legend>
+            <legend>SẢN PHẨM CÙNG LOẠI</legend>
         </div>
         <hr style="color: white; border: 1.5px solid white" />
         <div class="sp-laptop">
-            <?php foreach($sp_cungloai as $spcl): ?>
+            <?php foreach ($sp_cungloai as $spcl) : ?>
                 <?php extract($spcl) ?>
-            <div class="sp-one">
-                <img src="./views/imgs/<?= $hinh_sp?>" alt="" />
-                <div class="text-sp">
-                    <legend><?= $ten_sp ?></legend>
-                    <p>
-                        <?= $mo_ta?>
-                    </p>
-                    <span><?= $gia_sp ?>đ</span>
+                <div class="sp-one">
+                    <img src="./views/imgs/<?= $hinh_sp ?>" alt="" />
+                    <div class="text-sp">
+                        <legend><?= $ten_sp ?></legend>
+                        <p>
+                            <?= $mo_ta ?>
+                        </p>
+                        <span><?= $gia_sp ?>đ</span>
+                    </div>
                 </div>
-            </div>
             <?php endforeach; ?>
 
             <!-- <div class="sp-one">

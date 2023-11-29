@@ -7,7 +7,7 @@
 
         <div class="rights">
             <div class="top-rights">
-                <legend>Loại <?= $tenloai ?></legend>
+                <legend>RAM <?php echo $rams ?> GB</legend>
             </div>
             <div class="function-rights">
                 <button class="button">Xắp xếp theo</button>
@@ -18,14 +18,14 @@
             </div>
             <div class="sp-laptop">
                 <?php foreach ($locsanpham as $sp) : ?>
-                    <?php extract($sp); ?>
+                    <?php extract($sp); ?>  
                     <a href="?act=ctsp&ma_sp=<?= $ma_sp ?>">
                         <div class="sp-one">
                             <img src="./views/imgs/<?= $hinh_sp ?>" alt="" />
                             <div class="text-sp">
                                 <legend><?= $ten_sp ?></legend>
                                 <p>
-                                    Tên loại: <?= $tenloai?>
+                                    Ram: <?php echo $rams ?> GB
                                 </p>
                                 <span><?= $gia_sp ?>đ</span>
                             </div>

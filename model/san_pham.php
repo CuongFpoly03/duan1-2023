@@ -19,6 +19,7 @@ function loadall_sanpham($kyw = "", $ma_loai)
     $sql .= " ORDER BY ma_sp DESC";
     return  pdo_query($sql);
 }
+// locloai
 function load_ten_loai($ma_loai)
 {
     if ($ma_loai > 0) {
@@ -26,6 +27,54 @@ function load_ten_loai($ma_loai)
         $loai = pdo_query_one($sql);
         extract($loai);
         return $ten_loai;
+    } else {
+        return "";
+    }
+}
+//locnhucau
+function load_nhu_cau($ma_loai)
+{
+    if ($ma_loai > 0) {
+        $sql = "SELECT * FROM loai_laptop where ma_loai = $ma_loai";
+        $loai = pdo_query_one($sql);
+        extract($loai);
+        return $nhu_cau;
+    } else {
+        return "";
+    }
+}
+//lockichthuoc
+function load_kich_thuoc($ma_loai)
+{
+    if ($ma_loai > 0) {
+        $sql = "SELECT * FROM loai_laptop where ma_loai = $ma_loai";
+        $loai = pdo_query_one($sql);
+        extract($loai);
+        return $kich_thuoc;
+    } else {
+        return "";
+    }
+}
+//loc mau sac
+function load_mau_sac($ma_loai)
+{
+    if ($ma_loai > 0) {
+        $sql = "SELECT * FROM loai_laptop where ma_loai = $ma_loai";
+        $loai = pdo_query_one($sql);
+        extract($loai);
+        return $mau_sac;
+    } else {
+        return "";
+    }
+}
+//loc ram
+function load_ram($ma_loai)
+{
+    if ($ma_loai > 0) {
+        $sql = "SELECT * FROM loai_laptop where ma_loai = $ma_loai";
+        $loai = pdo_query_one($sql);
+        extract($loai);
+        return $ram;
     } else {
         return "";
     }
@@ -51,7 +100,7 @@ function sp_giamdan()
 //ctsp
 function chitiet_sp($ma_sp)
 {
-    $sql = "SELECT sp_laptop.*, ten_loai FROM sp_laptop JOIN loai_laptop ON sp_laptop.ma_loai = loai_laptop.ma_loai WHERE ma_sp = $ma_sp";
+    $sql = "SELECT sp_laptop.*, ten_loai, nhu_cau, mau_sac, kich_thuoc, ram FROM sp_laptop JOIN loai_laptop ON sp_laptop.ma_loai = loai_laptop.ma_loai WHERE ma_sp = $ma_sp";
     return pdo_query_one($sql);
 }
 //spcl
@@ -75,9 +124,9 @@ function all_list_sanphamnb()
     return  pdo_query($sql);
 }
 
-function add_sanpham($ten_sp, $gia_sp, $hinh_sp, $mo_ta, $ma_loai)
+function add_sanpham($ten_sp, $gia_sp,$so_luong, $hinh_sp, $mo_ta, $ma_loai)
 {
-    $sql = "INSERT INTO sp_laptop(ten_sp, gia_sp, hinh_sp, mo_ta, ma_loai) VALUES('$ten_sp','$gia_sp','$hinh_sp','$mo_ta','$ma_loai')";
+    $sql = "INSERT INTO sp_laptop(ten_sp, gia_sp, so_luong, hinh_sp, mo_ta, ma_loai) VALUES('$ten_sp','$gia_sp', '$so_luong','$hinh_sp','$mo_ta','$ma_loai')";
     // echo $sql; die;
     pdo_execute($sql);
 }
