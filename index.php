@@ -5,6 +5,7 @@ include "./model/loai_laptop.php";
 include "./model/san_pham.php";
 include "./model/khach_hang.php";
 include "./model/cart.php";
+include "./model/don_hang.php";
 
 
 $loaidanhmuc = all_list_loai();
@@ -141,7 +142,8 @@ switch ($act) {
             $ten_kh = $_POST['ten_kh'];
             $mat_khau = $_POST['mat_khau'];
             add_khachhang($email, $ten_kh, $mat_khau);
-            setcookie("thongbao", "Thêm Tài khoản thành công!", time() + 1);
+            // setcookie("thongbao", "Thêm Tài khoản thành công!", time() + 1);
+            echo "<script> alert('Bạn đã tạo tài khoản thành công!');</script>";
             // header("location: ?act=login");
             // die;
         }
@@ -157,9 +159,9 @@ switch ($act) {
             if (is_array($check_login)) {
                 $_SESSION['ten_kh'] = $check_login;
                 header("location: ?act=");
-                die;
+                exit;
             } else {
-                $thongbao = "k tồn tại !";
+                echo "<script> alert('vui lòng nhâp lại thông tin !');</script>";
             }
         }
         $VIEW = 'views/layout/accounts/login.php';
@@ -193,6 +195,24 @@ switch ($act) {
         break;
     case "viewdonhang":
         $title = "Đơn hàng";
+        // Xử lý cập nhật số lượng sản phẩm trong giỏ hàng
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_cart'])) {
+            foreach ($_SESSION['cart'] as $key => $product) {
+                if (isset($_POST['quantity_' . $product['ma_sp']])) {
+                    $new_quantity = $_POST['quantity_' . $product['ma_sp']];
+                    // Cập nhật số lượng sản phẩm
+                    $_SESSION['cart'][$key]['so_luong'] = $new_quantity;
+                    // Tính lại thành tiền của sản phẩm
+                    $_SESSION['cart'][$key]['thanh_tien'] = $new_quantity * $product['gia_sp'];
+                }
+            }
+        }
+        // Tính toán tổng tiền của giỏ hàng
+        $total_price = 0;
+        foreach ($_SESSION['cart'] as $product) {
+            $total_price += $product['thanh_tien'];
+        }
+
         $carts = $_SESSION['cart'];
         // var_dump($carts);
         // die;
@@ -216,22 +236,28 @@ switch ($act) {
         break;
     case 'donhangconfirm':
         $title = 'Thông tin thanh toán';
+        // điều kện đăng nhập với đặt hàng
+        if (!isset($_SESSION['ten_kh'])) {
+            echo "<script>alert('Mời bạn đăng nhập.');</script>";
+            $VIEW = './views/layout/accounts/login.php'; // Chuyển hướng đến trang đăng nhập
+            break;
+        }
         // tạo đơn hàng 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ten_dh = $_POST['ten_kh'];
             $email_dh = $_POST['email'];
             $diachi_dh = $_POST["dia_chi"];
             $sodt_dh = $_POST['dien_thoai'];
-            $dh_pttt = isset($_POST['dh_pttt']) ? ($_POST['dh_pttt'] === 'one' ? "Thanh toán trực tiếp" : ($_POST['dh_pttt'] === 'two' ? "Thanh toán chuyển khoản" : "không có lựa chọn")):"";
+            $dh_pttt = isset($_POST['dh_pttt']) ? ($_POST['dh_pttt'] === 'one' ? "Thanh toán trực tiếp" : ($_POST['dh_pttt'] === 'two' ? "Thanh toán chuyển khoản" : "không có lựa chọn")) : "";
+            $trang_thai = ($_POST['trang_thai'] === '1' ? "Đang xử lí" : ($_POST['trang_thai'] === '2' ? "Đang giao hàng" : ($_POST['trang_thai'] === '3' ? "Đơn hàng thành công!" : ""))); 
             $tong_tien = sum_cart();
             $ngay_dh = date('d/m/Y h:i:sa');
-            $ma_dh = inser_donhang($ten_dh, $diachi_dh, $sodt_dh, $email_dh, $dh_pttt, $tong_tien, $ngay_dh);
+            $ma_dh = inser_donhang($ten_dh, $diachi_dh, $sodt_dh, $email_dh, $dh_pttt, $tong_tien, $ngay_dh, $trang_thai);
             // Lưu thông tin chi tiết đơn hàng vào CSDL
             foreach ($_SESSION['cart'] as $cart) {
                 // Đảm bảo hàm insert_ct_donhang() đã được định nghĩa đúng.
                 insert_ct_donhang($_SESSION['ten_kh']['ma_kh'], $ma_dh, $cart['ma_sp'], $cart['hinh_sp'], $cart['so_luong'], $cart['gia_sp'], $cart['thanh_tien']);
             }
-            
             //Xóa giỏ hàng sau khi xử lý đơn hàng
             $carts = $_SESSION['cart'];
             $_SESSION['cart'] = [];
@@ -239,6 +265,28 @@ switch ($act) {
         // var_dump($carts); die;
         $sum = sum_cart();
         $VIEW = './views/layout/cart/chitietdonhang.php';
+        break;
+    case "qldonhang":
+        $title = "Quản lí đơn hàng";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['trang_thai'])) {
+                // var_dump($_POST);die;
+                // $trang_thai = $_POST['trang_thai'];
+                $trang_thai = ($_POST['trang_thai'] === '1' ? "Huỷ đơn hàng" : ""); 
+                $ma_dh = isset($_GET['ma_dh']) ? $_GET['ma_dh'] : $_POST['ma_dh'];
+                updateDonHangStatuss($trang_thai, $ma_dh);
+                header("Location: ?act=qldonhang");
+                exit();
+            }
+            // if (isset($_GET['ma_dh'])) {
+            //     $ma_kh = $_GET['ma_dh'];
+            //     $dh = load_one_dh($ma_dh);
+            //     extract($dh);
+            //     $VIEW = './views/layout/cart/qldonhang.php';
+            // }
+        }
+        $listdonhang = load_all_dh_home();
+        $VIEW = './views/layout/cart/qldonhang.php';
         break;
     default:
         echo "./404.php";

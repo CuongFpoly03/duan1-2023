@@ -5,6 +5,7 @@ require_once "../model/khach_hang.php";
 require_once "../model/binhluan.php";
 require_once "../model/don_hang.php";
 require_once "../model/donhang_ct.php";
+require_once "../model/chart.php";
 
 
 
@@ -12,6 +13,16 @@ $act = $_GET['act'] ?? "";
 switch ($act) {
     case "":
         $title = "Tổng Hợp";
+        $title = "Tổng hợp";
+        $totalday = total_ngay();
+        $totalweek  = total_tuan();
+        $totalmonth  = total_thang();
+        $totaldoanhthu  = total_doanhthu();
+        $totalsoluongban  = total_soLuongBan();
+        $sp_bannhieunhat = sanPhamBanNhieuNhat();
+        $slctk = soLuongConTrongKho();
+        $khachhangmoi = soLuongKhachHangMoi();
+        $thoigian = thoiGianMuaNhieuNhat();
         $VIEW = './layout/home.php';
         break;
         //BAI LOAI
@@ -95,7 +106,7 @@ switch ($act) {
             $file = $_FILES['hinh_sp'];
             $hinh_sp = $file['name'];
             move_uploaded_file($file['tmp_name'], "../views/imgs/" . $hinh_sp);
-            add_sanpham($ten_sp, $gia_sp,$so_luong, $hinh_sp, $mo_ta, $ma_loai);
+            add_sanpham($ten_sp, $gia_sp, $so_luong, $hinh_sp, $mo_ta, $ma_loai);
             header("location: ?act=sanpham");
             die;
         }
@@ -184,19 +195,18 @@ switch ($act) {
         break;
     case "listdh":
         $title = "Đơn hàng";
-        if (isset($_GET['ma_dh'])) {
-            $ma_dh = $_GET['ma_dh'];
-            delete_dh($ma_dh);
-            $thongbao = "Xóa dữ liệu thành công!";
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $ma_dh = $_POST['ma_dh'];
-            delete_dh_item($ma_dh);
-            $thongbao = 'xóa dữ liệu thành công!';
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['trang_thai'])) {
+                // Lấy giá trị trạng thái từ form
+                $trang_thai = $_POST['trang_thai'];
+                $trang_thai = ($_POST['trang_thai'] === '1' ? "Đang xử lí" : ($_POST['trang_thai'] === '2' ? "Đang giao hàng" : ($_POST['trang_thai'] === '3' ? "Đơn hàng thành công!" : ""))); 
+                $ma_dh = isset($_GET['ma_dh']) ? $_GET['ma_dh'] : $_POST['ma_dh'];
+                updateDonHangStatus($trang_thai, $ma_dh);
+                header("Location: ?act=listdh");
+                exit();
+            }
         }
         $listdh = load_all_dh();
-        // var_dump($listdh);
         $VIEW = "don-hang/list.php";
         break;
     case "listdhct":

@@ -98,6 +98,7 @@
             <div class="nav-item dropdown" style="background-color: white; height: 90px">
               <a style="border: 1px solid #F1F3F4;margin-top: 15px;font-weight: bold; text-align: center;margin-right: 100px;border-radius: 5px; padding: 5px;background-color: #F1F3F4;" href="" class="nav-link " data-bs-toggle="dropdown">👨🏻‍💼<?= $ten_kh ?></a>
               <div class="dropdown-menu m-0">
+                <a href="?act=qldonhang" class="dropdown-item">Quản lí đơn hàng</a>
                 <a href="" class="dropdown-item">Đổi mật khẩu</a>
                 <a href="" class="dropdown-item">cập nhập tài khoản</a>
                 <?php if ($vai_tro == 1) { ?> <a href="admin/index.php" class="dropdown-item">Đăng nhập Admin</a><?php } ?>

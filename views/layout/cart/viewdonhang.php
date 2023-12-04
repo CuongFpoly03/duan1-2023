@@ -39,12 +39,12 @@
     }
 </style>
 <section class="loai-cartshop">
-    <form class="cart" action="" method="POST">
+    <form class="cart" action="?act=viewdonhang" method="POST" id="update_cart_form">
+        <input type="hidden" name="update_cart" value="1">
         <h5 style="margin: 40px 0px">SẢN PHẨM GIỎ HÀNG</h5>
         <div class=col-70>
             <table class="table tables" style="text-align: center;">
                 <tr>
-                    <th>Chọn</th>
                     <th>STT</th>
                     <th>Hình ảnh</th>
                     <th>Tên sản phẩm</th>
@@ -55,12 +55,16 @@
                 <?php foreach ($carts as $stt => $cart) : ?>
                     <?php $i = 0; ?>
                     <tr>
-                        <td><input type="checkbox" checked></td>
                         <td><?= $stt + 1 ?></td>
                         <td><img src="views/imgs/<?= $cart['hinh_sp'] ?>" alt="" width="150" height="150"></td>
                         <td><?= $cart['ten_sp'] ?></td>
                         <td><?= $cart['gia_sp'] ?></td>
-                        <td><?= $cart['so_luong'] ?></td>
+                        <td>
+                            <input type="button" value="-" onclick="updateCart(<?= $cart['ma_sp'] ?>, 'decrement')">
+                            <input style="width: 30px; padding: 0px 7px" type="text" name="quantity_<?= $cart['ma_sp'] ?>" value="<?= $cart['so_luong'] ?>" data-price="<?= $cart['gia_sp'] ?>">
+                            <input type="button" value="+" onclick="updateCart(<?= $cart['ma_sp'] ?>, 'increment')">
+                        </td>
+
                         <td><?= $cart['thanh_tien'] ?></td>
                         <td><a style="text-decoration: none; font-size: 20px" onclick="return confirm('Bạn có muốn xóa không ?')" href="?act=xoacart&ma_sp=<?= $cart['ma_sp'] ?>">❎</a></td>
                     </tr>
@@ -85,13 +89,4 @@
             </div>
         </div>
     </form>
-
-    <script>
-        document.getElementById('deselect-all').addEventListener('click', function() {
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(function(checkbox) {
-                checkbox.checked = false;
-            });
-        });
-    </script>
 </section>

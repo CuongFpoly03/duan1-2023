@@ -123,7 +123,7 @@
                 <?php foreach ($contentdm as $ctdm) : ?>
                     <?php extract($ctdm) ?>
                     <div class="info">
-                        <img src="./views/imgs/dm1.jpg" alt="">
+                        <img src="./views/imgs/logo.jpg" alt="">
                         <p style="font-weight: bold"><?= $ten_loai ?></p>
                     </div>
                 <?php endforeach; ?>

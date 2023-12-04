@@ -3,6 +3,7 @@ session_start();
 include "../../model/pdo.php";
 include "../../model/binhluan.php";
 // $ma_sp = $_REQUEST['ma_bl'];
+
 $ma_sp = $_REQUEST['ma_sp'] ?? '';
 
 $dsbl = loadall_binhluan($ma_sp);
@@ -99,6 +100,11 @@ $dsbl = loadall_binhluan($ma_sp);
 
     <?php
     if (isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])) {
+      if (!isset($_SESSION['ten_kh'])) {
+        echo "<script>alert('Mời bạn đăng nhập.');</script>";
+        header('location: views/layout/accounts/login.php'); // Chuyển hướng đến trang đăng nhập
+        die;
+      }
       extract($_POST);
       $ma_sp = $_GET['ma_sp'];
       // $noi_dung = $_POST['noi_dung'];
@@ -107,7 +113,12 @@ $dsbl = loadall_binhluan($ma_sp);
       $ma_kh = $_SESSION['ten_kh']['ma_kh'];
       $ngay_bl = date('d/m/Y h:i:sa');
       insert_binhluan($noi_dung, $ma_kh, $ma_sp, $ngay_bl);
-      header("Location:" . $_SERVER['HTTP_REFERER']);
+      if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit;
+      } else {
+        echo "Không có trang trước để chuyển hướng.";
+      }
     }
     ?>
   </div>

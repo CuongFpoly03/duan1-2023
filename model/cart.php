@@ -35,8 +35,8 @@ function sum_cart() {
 }
 
 //tạo đơn hàng
-function inser_donhang($ten_dh, $diachi_dh, $sodt_dh, $email_dh,$dh_pttt, $tong_tien, $ngay_dh){
-    $sql = "INSERT INTO don_hang(ten_dh, diachi_dh, sodt_dh, email_dh, dh_pttt, tong_tien, ngay_dh) VALUES ('$ten_dh', '$diachi_dh', '$sodt_dh', '$email_dh','$dh_pttt', '$tong_tien', '$ngay_dh')";
+function inser_donhang($ten_dh, $diachi_dh, $sodt_dh, $email_dh,$dh_pttt, $tong_tien, $ngay_dh, $trang_thai){
+    $sql = "INSERT INTO don_hang(ten_dh, diachi_dh, sodt_dh, email_dh, dh_pttt, tong_tien, ngay_dh, trang_thai) VALUES ('$ten_dh', '$diachi_dh', '$sodt_dh', '$email_dh','$dh_pttt', '$tong_tien', '$ngay_dh', '$trang_thai')";
     return pdo_execute_return_lastInsertId($sql);
 }
 //thm vào giỏ hàng

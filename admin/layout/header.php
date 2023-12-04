@@ -65,7 +65,6 @@
                     <a href="index.php?act=listkh" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Khách hàng</a>
                     <a href="index.php?act=binhluan" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Bình luận</a>
                     <a href="index.php?act=listdh" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Đơn hàng</a>
-                    <a href="index.php?act=listdhct" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Đơn hàng chi tiết</a>
                     <a href="index.php?act=thongke" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <a href="../index.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Logout</a>
 

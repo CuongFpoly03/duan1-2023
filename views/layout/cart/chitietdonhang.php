@@ -75,5 +75,6 @@
         <!-- <button type="button" class="btn btn-outline-success">Chọn tất cả</button>
         <button type="button" class="btn btn-outline-danger">Xóa tất cả</button> -->
         <a href="?act="><button type="button" class="btn btn-outline-danger">Quay lại trang chủ</button></a>
+        <a href="?act=qldonhang"><button type="button" class="btn btn-outline-primary">Quản lí đơn hàng</button></a>
     </div>
 </section>

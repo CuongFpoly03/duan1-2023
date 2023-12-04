@@ -15,7 +15,7 @@
                     <p>Ram: <?= $ram ?> GB</p>
                     <span>Giá: <?= $gia_sp ?> đ</span>
                     <div class="submit" style="margin-top: 30px">
-                        <button>MUA NGAY</button>
+                        <a href="?act=cart&ma_sp=<?= $ma_sp ?>"><button>MUA NGAY</button></a>
                         <a href="?act=cart&ma_sp=<?= $ma_sp ?>"><button>THÊM VÀO GIỎ HÀNG</button></a>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
     <div class="description">
         <legend>BÌNH LUẬN VỀ SẢN PHẨM</legend>
         <div class="small-des">
-            <iframe src="./views/layout/binhluanform.php?ma_sp= <?= $ma_sp ?>" frameborder="0" width="100%" height="270px"></iframe>            
+            <iframe src="./views/layout/binhluanform.php?ma_sp= <?= $ma_sp ?>" frameborder="0" width="100%" height="270px"></iframe>
         </div>
     </div>
 

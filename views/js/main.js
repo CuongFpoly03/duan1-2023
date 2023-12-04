@@ -45,16 +45,17 @@ function shows(n) {
   slides[indexSlide - 1].style.display = "block";
 }
 
-
 //shop
 function OpenCart() {
   document.getElementById("myshop").style.width = "25%";
+}
+function updatedh() {
+  document.getElementById("block").style.display = "block";
 }
 
 function CloseShop() {
   document.getElementById("myshop").style.width = "0%";
 }
-
 
 // down
 const btnScrollTo = document.querySelector(".btn--scroll-to");
@@ -74,7 +75,6 @@ btnScrollTo.addEventListener("click", function (e) {
   );
   section1.scrollIntoView({ behavior: "smooth" });
 });
-
 
 //navbar
 window.onscroll = function () {
