@@ -4,7 +4,6 @@ require_once "../model/san_pham.php";
 require_once "../model/khach_hang.php";
 require_once "../model/binhluan.php";
 require_once "../model/don_hang.php";
-require_once "../model/donhang_ct.php";
 require_once "../model/chart.php";
 
 
@@ -195,36 +194,28 @@ switch ($act) {
         break;
     case "listdh":
         $title = "Đơn hàng";
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_POST['trang_thai'])) {
-                // Lấy giá trị trạng thái từ form
-                $trang_thai = $_POST['trang_thai'];
-                $trang_thai = ($_POST['trang_thai'] === '1' ? "Đang xử lí" : ($_POST['trang_thai'] === '2' ? "Đang giao hàng" : ($_POST['trang_thai'] === '3' ? "Đơn hàng thành công!" : ""))); 
-                $ma_dh = isset($_GET['ma_dh']) ? $_GET['ma_dh'] : $_POST['ma_dh'];
-                updateDonHangStatus($trang_thai, $ma_dh);
-                header("Location: ?act=listdh");
-                exit();
-            }
-        }
-        $listdh = load_all_dh();
+        $listdh =  load_all_dhadnct();
         $VIEW = "don-hang/list.php";
         break;
     case "listdhct":
         $title = "chi tiết đơn hàng";
         if (isset($_GET['ma_ct'])) {
             $ma_ct = $_GET['ma_ct'];
-            delete_ct($ma_ct);
-            $thongbao = "Xóa dữ liệu thành công!";
+            $loadone = list_dh_ctdh($ma_ct);
+            extract($loadone);
         }
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $ma_ct = $_POST['ma_ct'];
-            delete_ctdh_item($ma_ct);
-            $thongbao = 'xóa dữ liệu thành công!';
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['trang_thai'])) {
+                $trang_thai = ($_POST['trang_thai'] === '1' ? "Đang xử lí" : ($_POST['trang_thai'] === '2' ? "Đang giao hàng" : ($_POST['trang_thai'] === '3' ? "Đơn hàng thành công !" : ($_POST['trang_thai'] === '4' ? "Huỷ đơn hàng" : "")))); 
+                $ma_dh = isset($_POST['ma_dh']) ? $_POST['ma_dh'] : $_POST['ma_dh'];
+                updateDonHangStatus($trang_thai, $ma_dh);
+                header('location: ?act=listdh');
+                exit();
+                // echo "<script>alert('thay đổi thành công!');</script>";
+                // $listctdh = list_dh_ctdh($ma_ct);
+            }
         }
-        $listct = load_all_ctdh();
-        // var_dump($listdh);
-        $VIEW = "chitietdonhang/list.php";
+        $VIEW = "don-hang/chitietsp.php";
         break;
     default:
         // include "../admin/404.php";

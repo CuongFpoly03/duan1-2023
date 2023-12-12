@@ -15,7 +15,7 @@
                     <p>Ram: <?= $ram ?> GB</p>
                     <span>Giá: <?= $gia_sp ?> đ</span>
                     <div class="submit" style="margin-top: 30px">
-                        <a href="?act=cart&ma_sp=<?= $ma_sp ?>"><button>MUA NGAY</button></a>
+                        <a href="?act=check_online"><button>MUA NGAY</button></a>
                         <a href="?act=cart&ma_sp=<?= $ma_sp ?>"><button>THÊM VÀO GIỎ HÀNG</button></a>
                     </div>
                 </div>

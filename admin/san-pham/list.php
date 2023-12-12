@@ -4,7 +4,7 @@
     }
 </style>
 <section class="loai-laptop">
-    <legend>Danh sách loại LapTop</legend>
+<h5 style="background-color: blue; color: white; padding: 5px 0px; text-align: center">Danh sách sản phẩm laptop</h5>
     <!-- BAILỌC TÊN SẢN PHẨM -->
     <div>
 
@@ -13,7 +13,6 @@
 
         <table class="table table-bordered border-primary" style="text-align: center">
             <tr>
-                <th>Chọn</th>
                 <th>Ma_sp</th>
                 <th>Ten_sp</th>
                 <th>Gia_sp</th>
@@ -25,11 +24,11 @@
                 <th>Kich_thuoc</th>
                 <th>Ram</th>
                 <th>Mo_ta</th>
+                <th>thông tin</th>
             </tr>
             <?php foreach ($sanpham as $sp) : ?>
                 <?php extract($sp) ?>
                 <tr>
-                    <th><input type="checkbox" name="ma_loai[]" value=<?= $ma_loai ?> class="checkbox"></th>
                     <td><?= $ma_sp ?></td>
                     <td><?= $ten_sp ?></td>
                     <td><?= $gia_sp ?></td>
@@ -42,17 +41,14 @@
                     <td><?= $ram ?>GB</td>
                     <td><?= $mo_ta ?></td>
                     <td>
-                        <a onclick="return confirm('Bạn có muốn xóa không ?')" href="?act=sanpham&ma_sp=<?= $ma_sp ?>">xóa</a> -
-                        <a href="?act=updatesp&ma_sp=<?= $ma_sp ?>">sửa</a>
+                        <a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không ?')" href="?act=sanpham&ma_sp=<?= $ma_sp ?>">xóa</a> -
+                        <a class="btn btn-primary" href="?act=updatesp&ma_sp=<?= $ma_sp ?>">sửa</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </table>
         <div>
             <a href="?act=addsp"><button type="button" class="btn btn-outline-primary">Thêm mới</button></a>
-            <button type="button" class="btn btn-outline-success">Chọn tất cả</button>
-            <button type="button" class="btn btn-outline-danger">Xóa tất cả</button>
-            <button type="button" class="btn btn-outline-warning">Bỏ chọn</button>
         </div>
     </form>
 </section>

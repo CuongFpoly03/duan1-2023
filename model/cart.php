@@ -35,8 +35,12 @@ function sum_cart() {
 }
 
 //tạo đơn hàng
-function inser_donhang($ten_dh, $diachi_dh, $sodt_dh, $email_dh,$dh_pttt, $tong_tien, $ngay_dh, $trang_thai){
-    $sql = "INSERT INTO don_hang(ten_dh, diachi_dh, sodt_dh, email_dh, dh_pttt, tong_tien, ngay_dh, trang_thai) VALUES ('$ten_dh', '$diachi_dh', '$sodt_dh', '$email_dh','$dh_pttt', '$tong_tien', '$ngay_dh', '$trang_thai')";
+function inser_donhang($ten_dh, $diachi_dh, $sodt_dh, $email_dh,$dh_pttt, $tong_tien,$ngay_dh, $trang_thai){
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $date = date("Y-m-d H:i:s");
+    // $ngay_dhh = date('Y-m-d H:i:s', strtotime(str_replace('/', '-', $ngay_dh)));
+    $sql = "INSERT INTO don_hang(ten_dh, diachi_dh, sodt_dh, email_dh, dh_pttt, tong_tien, ngay_dh, trang_thai) VALUES ('$ten_dh', '$diachi_dh', '$sodt_dh', '$email_dh','$dh_pttt', '$tong_tien', '$date' , '$trang_thai')";
+    // echo $sql; die;
     return pdo_execute_return_lastInsertId($sql);
 }
 //thm vào giỏ hàng

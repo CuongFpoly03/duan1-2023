@@ -26,7 +26,7 @@
     }
 </style>
 <section class="loai-laptop">
-    <legend>Danh sách đơn hàng</legend>
+<h5 style="background-color: blue; color: white; padding: 5px 0px; text-align: center">Danh sách đơn hàng</h5>
     <!-- BAILỌC TÊN SẢN PHẨM -->
     <div>
 
@@ -47,8 +47,11 @@
                 <th>Xem thêm</th>
             </tr>
             <?php foreach ($listdh as $dh) : ?>
-                <?php extract($dh) ?>
-                <tr>
+                <?php extract($dh);
+                // date_default_timezone_set('Asia/Ho_Chi_Minh');
+                // $date = date('d/m/Y h:i:sa'); ?>
+                
+            <tr>
                     <td><?= $ma_dh ?></td>
                     <td><?= $ten_dh ?></td>
                     <td><?= $diachi_dh ?></td>
@@ -56,32 +59,16 @@
                     <td><?= $email_dh ?></td>
                     <td><?= $dh_pttt ?></td>
                     <td><?= $tong_tien ?></td>
-                    <td><?= date("d/m/Y h:i:sa") ?></td>
-                    <td style="font-weight: bold">
+                    <td><?= $ngay_dh ?></td>
+                    <td style="font-weight: bold; color: red">
                         <?= $trang_thai ?> <br>
-                        <a class ="btn btn-primary" href="?act=listdh&ma_dh=<?= $ma_dh ?>">Đổi</a>
                     </td>
                     <td>
-                        <a class ="btn btn-danger" href="?act=listdhct&ma_ct=<?= $ma_ct ?>">Chi tiết</a>
+                        <a class ="btn btn-danger" href="?act=listdhct&ma_ct=<?= $ma_ct ?>&ma_dh=<?= $ma_dh ?>">Chi tiết</a>
                     </td>
                 </tr>
-            <?php endforeach; ?>
-            <div class="block" id="block">
-                <form action="?act=listdh" method="POST">
-                    <input type="hidden" name="ma_dh" value="<?= $ma_dh ?>">
-                    <select name="trang_thai" id="trang_thai">
-                        <option value="1">Xử lí đơn hàng</option>
-                        <option value="2">Đang giao hàng</option>
-                        <option value="3">Đơn hàng thành công!</option>
-                    </select>
-                    <button style="font-size: 10px" class="btn btn-dark">thay đổi</button>
-                </form>
-            </div>
+                <?php endforeach; ?>
+           
         </table>
-        <div>
-            <button type="button" class="btn btn-outline-success">Chọn tất cả</button>
-            <button type="button" class="btn btn-outline-danger">Xóa tất cả</button>
-            <button type="button" class="btn btn-outline-warning">Bỏ chọn</button>
-        </div>
     </form>
 </section>

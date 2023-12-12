@@ -129,7 +129,7 @@ function total_soluongdaban()
 }
 function total_soluongtrongkho()
 {
-    $sql = "SELECT ma_sp, so_luong AS total_trongkho FROM sp_laptop";
+    $sql = "SELECT ma_sp, so_luong AS total_trongkho, ten_sp FROM sp_laptop";
     $result = pdo_query($sql);
 
     if ($result) {
@@ -147,18 +147,18 @@ function soLuongConTrongKho()
     foreach ($conlaitrongkho as $sp_conlai) {
         $ma_sp = $sp_conlai['ma_sp'];
         $total_sp_conlai = $sp_conlai['total_trongkho'];
+        $ten_sp = $sp_conlai['ten_sp'];
 
         foreach ($sachdaban as $sold) {
             if ($sold['ma_sp'] === $ma_sp) {
                 $total_sp_daban = $sold['total_soluong'];
                 $soluong_conlai = $total_sp_conlai - $total_sp_daban;
-                $conlai[$ma_sp] = $soluong_conlai;
+                $conlai[$ten_sp] = $soluong_conlai;
                 break;
             }
         }
     }
-
-    return $conlai; // Trả về một mảng chứa thông tin về số lượng còn trong kho của mỗi sản phẩm
+    return $conlai;
 }
 
 
@@ -175,7 +175,7 @@ function soLuongKhachHangMoi()
     if ($result) {
         return $result['khachhang_moi'];
     } else {
-        return 0; 
+        return 0;
     }
 }
 
@@ -191,9 +191,8 @@ function thoiGianMuaNhieuNhat()
     $result = pdo_query_one($sql);
 
     if ($result) {
-        return $result; 
+        return $result;
     } else {
         return null;
     }
 }
-

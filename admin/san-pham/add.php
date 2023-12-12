@@ -38,11 +38,11 @@
                 <option value="<?= $lo['ma_loai'] ?>"> <?= $lo['ten_loai'] ?></option>
             <?php endforeach;?>
         </select> <br>
-        <!-- Nhu Cầu: <select name="ma_loai" id=""  style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
+        Nhu Cầu: <select name="ma_loai" id=""  style="width:100%; border-radius: 5px; padding: 5px 10px; margin: 20px 0">
             <option value="0">Chọn nhu cầu</option>
             <?php foreach($loai as $lo) :?>
                 <option value="<?= $lo['ma_loai'] ?>"> <?= $lo['nhu_cau'] ?></option>
-            <?php endforeach;?>
+            <?php endforeach;?> 
         </select> <br>
         Màu Sắc: <select name="ma_loai" id=""  style="width:100%; border-radius: 5px; padding: 5px 10px">
             <option value="0">Chọn màu sắc</option>
@@ -61,7 +61,7 @@
             <?php foreach($loai as $lo) :?>
                 <option value="<?= $lo['ma_loai'] ?>"> <?= $lo['ram'] ?></option>
             <?php endforeach;?>
-        </select> <br> -->
+        </select> <br>
         <button name="themmoi" class="btn btn-outline-success">Thêm mới</button>
         <a href="?act=sanpham"><button type="button" class="btn btn-outline-primary">Danh sách</button></a>
     </form>

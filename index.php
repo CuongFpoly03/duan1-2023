@@ -6,6 +6,7 @@ include "./model/san_pham.php";
 include "./model/khach_hang.php";
 include "./model/cart.php";
 include "./model/don_hang.php";
+include "./model/checkonline.php";
 
 
 $loaidanhmuc = all_list_loai();
@@ -23,7 +24,7 @@ switch ($act) {
         $VIEW = "./views/layout/home.php";
         break;
     case 'ctsp':
-        $_SESSION['URI'] = $_SERVER['REQUEST_URI'];
+        // $_SESSION['URI'] = $_SERVER['REQUEST_URI'];
         // echo "<pre>";
         // echo $_SESSION['URI'];die;
         // echo "</pre>";
@@ -248,11 +249,13 @@ switch ($act) {
             $email_dh = $_POST['email'];
             $diachi_dh = $_POST["dia_chi"];
             $sodt_dh = $_POST['dien_thoai'];
-            $dh_pttt = isset($_POST['dh_pttt']) ? ($_POST['dh_pttt'] === 'one' ? "Thanh toán trực tiếp" : ($_POST['dh_pttt'] === 'two' ? "Thanh toán chuyển khoản" : "không có lựa chọn")) : "";
-            $trang_thai = ($_POST['trang_thai'] === '1' ? "Đang xử lí" : ($_POST['trang_thai'] === '2' ? "Đang giao hàng" : ($_POST['trang_thai'] === '3' ? "Đơn hàng thành công!" : ""))); 
+            $dh_pttt = isset($_POST['dh_pttt']) ? ($_POST['dh_pttt'] === 'one' ? "Thanh toán trực tiếp" : ($_POST['dh_pttt'] === 'two' ? "Thanh toán chuyển khoản" : "Thanh toán trực tiếp")) : "";
+            $trang_thai = ($_POST['trang_thai'] === '1' ? "Đang xử lí" : ($_POST['trang_thai'] === '2' ? "Đang giao hàng" : ($_POST['trang_thai'] === '3' ? "Đơn hàng thành công!" : "")));
             $tong_tien = sum_cart();
-            $ngay_dh = date('d/m/Y h:i:sa');
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $ngay_dh = date("Y-m-d H:i:s");
             $ma_dh = inser_donhang($ten_dh, $diachi_dh, $sodt_dh, $email_dh, $dh_pttt, $tong_tien, $ngay_dh, $trang_thai);
+            // echo $ma_dh;die;
             // Lưu thông tin chi tiết đơn hàng vào CSDL
             foreach ($_SESSION['cart'] as $cart) {
                 // Đảm bảo hàm insert_ct_donhang() đã được định nghĩa đúng.
@@ -272,7 +275,7 @@ switch ($act) {
             if (isset($_POST['trang_thai'])) {
                 // var_dump($_POST);die;
                 // $trang_thai = $_POST['trang_thai'];
-                $trang_thai = ($_POST['trang_thai'] === '1' ? "Huỷ đơn hàng" : ""); 
+                $trang_thai = ($_POST['trang_thai'] === '1' ? "Huỷ đơn hàng" : "");
                 $ma_dh = isset($_GET['ma_dh']) ? $_GET['ma_dh'] : $_POST['ma_dh'];
                 updateDonHangStatuss($trang_thai, $ma_dh);
                 header("Location: ?act=qldonhang");
@@ -287,6 +290,36 @@ switch ($act) {
         }
         $listdonhang = load_all_dh_home();
         $VIEW = './views/layout/cart/qldonhang.php';
+        break;
+    case "check_online":
+        $title = "Thanh toán online";
+        if (!isset($_SESSION['ten_kh'])) {
+            echo "<script>alert('Mời bạn đăng nhập.');</script>";
+            $VIEW = './views/layout/accounts/login.php'; // Chuyển hướng đến trang đăng nhập
+            break;
+        }
+        if (isset($_GET['vnp_Amount'])) {
+            $data_vnpay = [
+                'vnp_Amount' => $_GET['vnp_Amount'],
+                'vnp_BankCode' => $_GET['vnp_BankCode'],
+                'vnp_BankTranNo' => $_GET['revnp_BankTranNoquestId'],
+                'vnp_CardType' => $_GET['vnp_CardType'],
+                'vnp_OrderInfo' => $_GET['vnp_OrderInfo'],
+                'vnp_PayDate' => $_GET['vnp_PayDate'],
+                'vnp_ResponseCode' => $_GET['vnp_ResponseCode'],
+                'vnp_TmnCode' => $_GET['vnp_TmnCode'],
+                'vnp_TransactionNo' => $_GET['vnp_TransactionNo'],
+                'vnp_TransactionStatus' => $_GET['vnp_TransactionStatus'],
+                'vnp_TxnRef' => $_GET['vnp_TxnRef'],
+                'vnp_SecureHash' => $_GET['vnp_SecureHash'],
+            ];
+            insert_data($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
+        }
+        $VIEW = './views/layout/cart/vnpay/index.php';
+        break;
+    case "thank":
+        $title = "Cảm ơn";
+        $VIEW = "./views/layout/home.php";
         break;
     default:
         echo "./404.php";

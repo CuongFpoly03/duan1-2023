@@ -20,9 +20,14 @@
                 <th>Tổng đơn hàng</th>
                 <th>Phương thức thanh toán</th>
             </tr>
+            <?php
+                 date_default_timezone_set('Asia/Ho_Chi_Minh');
+                 $date = date("Y-m-d H:i:s");
+                $i = 0;
+                ?>
             <tr>
                 <td><?= $ma_dh ?></td>
-                <td><?= $ngay_dh ?></td>
+                <td><?= $date ?></td>
                 <td><?= $tong_tien ?></td>
                 <td><?= $dh_pttt ?></td>
             </tr>

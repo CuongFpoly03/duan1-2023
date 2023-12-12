@@ -103,6 +103,8 @@ $dsbl = loadall_binhluan($ma_sp);
       if (!isset($_SESSION['ten_kh'])) {
         echo "<script>alert('Mời bạn đăng nhập.');</script>";
         header('location: views/layout/accounts/login.php'); // Chuyển hướng đến trang đăng nhập
+        // echo '<script> window.location.href = "?act=login";</script>';
+        // echo "<script>window.location.href = '?act=login';</script>";
         die;
       }
       extract($_POST);
@@ -115,9 +117,9 @@ $dsbl = loadall_binhluan($ma_sp);
       insert_binhluan($noi_dung, $ma_kh, $ma_sp, $ngay_bl);
       if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
         header("Location: " . $_SERVER['HTTP_REFERER']);
-        exit;
+        exit();
       } else {
-        echo "Không có trang trước để chuyển hướng.";
+        echo "<h5>Không có trang trước để chuyển hướng.</h5>";
       }
     }
     ?>

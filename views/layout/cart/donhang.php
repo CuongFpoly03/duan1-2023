@@ -97,9 +97,9 @@
                     </select>
                 </form>
                 <select name="dh_pttt" id="">
-                    <option value="0">chọn hình thức thanh toán</option>
+                    <!-- <option value="0">chọn hình thức thanh toán</option> -->
                     <option value="one">Thanh toán trực tiếp</option>
-                    <option value="two">Thanh toán chuyển khoản</option>
+                    <!-- <option value="two">Thanh toán online</option> -->
                 </select>
             </div>
             <?php if (isset($_SESSION['ten_kh'])) {
@@ -162,14 +162,18 @@
                 <th>Thành tiền</th>
             </tr>
             <?php foreach ($carts as $stt => $cart) : ?>
-                <?php $i = 0; ?>
+                <?php
+                 date_default_timezone_set('Asia/Ho_Chi_Minh');
+                 $date = date("Y-m-d H:i:s");
+                $i = 0;
+                ?>
                 <tr>
                     <td><?= $stt + 1 ?></td>
                     <td><?= $cart['ten_sp'] ?></td>
                     <td><?= $cart['gia_sp'] ?></td>
                     <td><?= $cart['so_luong'] ?></td>
                     <td><img src="views/imgs/<?= $cart['hinh_sp'] ?>" alt="" width="60" height="60"></td>
-                    <td><?= (date('d/m/Y h:i:sa')) ?></td>
+                    <td><?= $date ?></td>
                     <td><?= $cart['thanh_tien'] ?></td>
                 </tr>
             <?php endforeach ?>
@@ -201,6 +205,7 @@
                     <span>Thành tiền 💵:</span>
                     <span style="float: right;"><strong><?= $sum ?>đ</strong></span>
                 </div>
+                <!-- <td><a href="?act=check_online"><button class="btn btn-primary">Thanh toán online</button></a></td> -->
                 <td><button type="button" onclick="donhangForm()" class="success">Đồng ý thanh toán</button></td>
                 <div style="margin:40px 0px; margin-left: 240px">
                     <a href="?act=viewdonhang"><button type="button" class="btn btn-outline-primary">Quay lại</button></a>

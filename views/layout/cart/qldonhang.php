@@ -57,7 +57,7 @@
                 <td><?= $diachi_dh ?></td>
                 <td><?= $sodt_dh ?></td>
                 <td><?= $tong_tien ?></td>
-                <td><?= date("d/m/Y") ?></td>
+                <td><?= $ngay_dh ?></td>
                 <td style="color: red; font-weight:bold ">
                     <form action="?act=qldonhang" method="POST">
                         <input type="hidden" name="ma_dh" value="<?= $ma_dh ?>">

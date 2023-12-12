@@ -5,11 +5,10 @@
     }
 </style>
 <section class="loai-laptop">
-    <legend>Danh sách loại LapTop</legend>
+<h5 style="background-color: blue; color: white; padding: 5px 0px; text-align: center">Danh sách loại laptop</h5>
     <form action="" method="POST">
         <table class="table table-bordered border-primary" style="text-align: center">
             <tr>
-                <th>Chọn</th>
                 <th>Ma_loai</th>
                 <th>Ten_loai</th>
                 <th>Nhu_cau</th>
@@ -23,7 +22,6 @@
             <?php foreach($listlaptop as $list): ?>
                 <?php extract($list) ?>
             <tr>
-                <th><input type="checkbox" name="ma_loai[]"value= <?= $ma_loai ?> class="checkbox" ></th>
                 <td><?= $ma_loai ?></td>
                 <td><?= $ten_loai ?></td>
                 <td><?= $nhu_cau ?></td>
@@ -33,17 +31,14 @@
                 <td><?= $luot_xem ?></td>
                 <td><?= $trang_thai ? "hiển thị" : "ẩn" ?></td>
                 <td>
-                    <a onclick="return confirm('Bạn có muốn xóa không ?')" href="?act=loai&ma_loai=<?=$ma_loai ?>">xóa</a> -
-                    <a href="?act=update&ma_loai=<?= $ma_loai ?>">sửa</a>
+                    <a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không ?')" href="?act=loai&ma_loai=<?=$ma_loai ?>">xóa</a> -
+                    <a class="btn btn-primary" href="?act=update&ma_loai=<?= $ma_loai ?>">sửa</a>
                 </td>
             </tr>
             <?php endforeach;?>
         </table>
         <div>
             <a href="?act=add"><button type="button" class="btn btn-outline-primary">Thêm mới</button></a>
-            <button type="button" class="btn btn-outline-success">Chọn tất cả</button>
-            <button type="button" class="btn btn-outline-danger">Xóa tất cả</button>
-            <button type="button" class="btn btn-outline-warning">Bỏ chọn</button>
         </div>
     </form>
 </section>
